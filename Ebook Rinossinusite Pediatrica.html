@@ -1,0 +1,1199 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<title>Rinossinusite Pediátrica na Prática — Dra. Ana Luísa Pacheco</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --blue:#5285B7; --blue-deep:#3A6A99; --blue-ink:#1F3A5C;
+  --sky:#A5CAE0;  --sky-soft:#D6E6F1;
+  --yellow:#FDDB5C; --yellow-soft:#FEEFB7;
+  --pink:#F7ADAF;   --pink-soft:#FBD8D9;
+  --teal:#92D4D5;   --teal-soft:#D1EDEE;
+  --ink:#1B2B3D;    --ink-soft:#4A5A6E;
+  --paper:#FBF8F3;  --paper-warm:#F5EEE2;
+  --rule:#E6DFD1;
+  --red:#D95D62;    --red-deep:#8B3236;
+  --green:#2F8F5A;  --green-soft:#C8EDDA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#E9E4D8;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+body{padding:56px 20px 130px;display:flex;flex-direction:column;align-items:center;gap:56px}
+
+/* PAGE */
+.page{
+  width:min(820px,100%); aspect-ratio:794/1123;
+  background:var(--paper);
+  box-shadow:0 32px 72px -20px rgba(31,58,92,.24), 0 8px 24px -8px rgba(31,58,92,.12);
+  position:relative; overflow:hidden; border-radius:4px;
+}
+.pi{position:absolute; inset:0; padding:72px 80px 88px; display:flex; flex-direction:column}
+.folio{
+  position:absolute; left:0; right:0; bottom:30px;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:0 80px; font-size:11px; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--ink-soft); font-weight:500;
+}
+.folio b{color:var(--blue-deep)}
+
+/* PAGE HEADER */
+.ph{
+  display:flex; justify-content:space-between; align-items:center;
+  border-bottom:1px solid var(--rule); padding-bottom:16px; margin-bottom:40px;
+  font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-soft); font-weight:500;
+}
+.ph .c{color:var(--blue-deep); font-weight:700}
+
+/* TYPOGRAPHY */
+.ey{
+  font-size:11px; font-weight:700; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--blue-deep); display:flex; align-items:center; gap:12px; margin-bottom:20px;
+}
+.ey::before{content:""; display:block; width:30px; height:1.5px; background:var(--blue-deep)}
+.ey .n{
+  width:26px; height:26px; border-radius:50%; background:var(--blue);
+  color:#fff; display:inline-flex; align-items:center; justify-content:center;
+  font-size:11px; letter-spacing:0;
+}
+h2.t{
+  font-family:'Fraunces',serif; font-weight:400;
+  font-size:52px; line-height:.98; letter-spacing:-.02em;
+  color:var(--blue-ink); font-variation-settings:"opsz" 144;
+}
+h2.t em{font-style:italic; font-weight:300; color:var(--blue)}
+h3.st{
+  font-family:'Fraunces',serif; font-weight:500; font-size:28px;
+  color:var(--blue-ink); letter-spacing:-.01em; margin-bottom:16px; line-height:1.1;
+}
+h3.st em{font-style:italic; color:var(--blue); font-weight:300}
+.lede{
+  font-family:'Fraunces',serif; font-weight:300; font-style:italic;
+  font-size:22px; line-height:1.45; color:var(--ink-soft); margin-top:18px;
+}
+p.b{font-size:14.5px; line-height:1.75; color:var(--ink)}
+p.b+p.b{margin-top:16px}
+.rule{height:1px; background:var(--rule); margin:28px 0}
+.sc{font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-soft); font-weight:600}
+
+/* CALLOUT BOXES */
+.box{border-radius:8px; padding:22px 26px; display:flex; gap:18px; align-items:flex-start}
+.box .ico{
+  flex:none; width:40px; height:40px; border-radius:50%;
+  background:var(--blue); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:700;
+}
+.box .txt{font-size:14px; line-height:1.6; color:var(--blue-ink); font-weight:500}
+.box.blue{background:var(--sky-soft)} .box.blue .ico{background:var(--blue)}
+.box.warn{background:#FCE9EA} .box.warn .ico{background:var(--red)} .box.warn .txt{color:#6F262A}
+.box.tip{background:var(--yellow-soft)} .box.tip .ico{background:#D4A500;color:#fff} .box.tip .txt{color:#5F4400}
+.box.green{background:var(--green-soft)} .box.green .ico{background:var(--green);color:#fff} .box.green .txt{color:#1A5C38}
+.box.teal{background:var(--teal-soft)} .box.teal .ico{background:#2F6B6C} .box.teal .txt{color:#1e4949}
+
+/* LISTS */
+.bl{display:flex;flex-direction:column;gap:12px}
+.bl li{list-style:none;display:flex;gap:14px;align-items:flex-start;font-size:14px;line-height:1.65;color:var(--ink)}
+.bl li::before{content:"";flex:none;margin-top:9px;width:7px;height:7px;border-radius:2px;background:var(--blue);transform:rotate(45deg)}
+.bl.red li::before{background:var(--red)}
+.bl.green li::before{background:var(--green)}
+.bl.yellow li::before{background:var(--yellow)}
+.bl.teal li::before{background:var(--teal)}
+
+/* STAT TILES */
+.tile{background:#fff;border-radius:8px;padding:24px 26px;border:1px solid var(--rule);display:flex;flex-direction:column;gap:10px}
+.tile .lbl{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.tile .big{font-family:'Fraunces',serif;font-weight:500;font-size:52px;line-height:1;color:var(--blue-ink);letter-spacing:-.03em}
+.tile .big em{font-style:italic;color:var(--blue);font-weight:400}
+.tile p{font-size:13px;line-height:1.55;color:var(--ink-soft)}
+.tile h4{font-family:'Fraunces',serif;font-weight:500;font-size:20px;color:var(--blue-ink)}
+.tile .iw{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--sky-soft);color:var(--blue-ink)}
+.tile .iw svg{width:22px;height:22px}
+.tile .iw.pink{background:var(--pink-soft);color:var(--red-deep)}
+.tile .iw.green{background:var(--green-soft);color:var(--green)}
+.tile .iw.yellow{background:var(--yellow-soft);color:#7A5A00}
+.tile .iw.teal{background:var(--teal-soft);color:#2F6B6C}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;font-size:13px}
+.tbl th{background:var(--blue-ink);color:#fff;padding:11px 14px;text-align:left;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.tbl td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5;color:var(--ink)}
+.tbl tr:nth-child(even) td{background:rgba(82,133,183,.04)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td:first-child{font-weight:600;color:var(--blue-ink);background:var(--paper-warm)}
+.ok{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:5px;vertical-align:middle}
+.no{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:5px;vertical-align:middle}
+.mx{display:inline-block;width:8px;height:8px;border-radius:50%;background:#D4A500;margin-right:5px;vertical-align:middle}
+
+/* CHIPS */
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:999px;background:var(--sky-soft);color:var(--blue-ink);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.chip.yellow{background:var(--yellow-soft);color:#7A5A00}
+.chip.red{background:var(--pink-soft);color:var(--red-deep)}
+.chip.green{background:var(--green-soft);color:#1A5C38}
+.chip.teal{background:var(--teal-soft);color:#2F6B6C}
+
+/* QCARD */
+.qcard{background:var(--blue-ink);color:#fff;border-radius:10px;padding:30px 34px;position:relative;overflow:hidden}
+.qcard::before{content:"\201C";position:absolute;right:18px;top:-10px;font-size:160px;color:var(--yellow);opacity:.26;font-family:'Fraunces',serif;line-height:1}
+.qcard p{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:24px;line-height:1.35;max-width:540px}
+.qcard .att{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--yellow);font-weight:600;margin-top:16px}
+
+/* GOLD CARD */
+.gold{background:var(--yellow-soft);border:1px solid rgba(212,165,0,.2);border-radius:10px;padding:22px 26px;display:flex;gap:18px}
+.gold .n{font-family:'Fraunces',serif;font-size:44px;color:var(--blue-ink);font-weight:500;line-height:1;font-style:italic;flex:none;width:50px}
+.gold h5{font-family:'Fraunces',serif;font-weight:500;font-size:19px;color:var(--blue-ink);margin-bottom:5px}
+.gold p{font-size:13px;color:var(--ink-soft);line-height:1.55}
+
+/* FENOTYPE CARD */
+.fcard{border-radius:10px;padding:26px 28px;display:flex;gap:26px;align-items:flex-start}
+.fcard .badge{flex:none;padding:8px 16px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;align-self:flex-start;white-space:nowrap}
+.fcard h4{font-family:'Fraunces',serif;font-weight:500;font-size:24px;color:var(--blue-ink);margin-bottom:12px;line-height:1.1}
+.fcard .crit{border-radius:6px;padding:14px 16px;font-size:13.5px;line-height:1.65;color:var(--ink);margin-bottom:10px}
+.fcard p{font-size:13px;line-height:1.55;color:var(--ink-soft)}
+
+/* COVER */
+.cover{background:radial-gradient(120% 70% at 100% 0%,var(--sky-soft) 0%,transparent 55%),radial-gradient(90% 60% at 0% 100%,var(--yellow-soft) 0%,transparent 55%),var(--paper)}
+.cvr-graphic{position:absolute;right:-50px;top:50%;width:470px;height:470px;pointer-events:none;z-index:1;transform:translateY(-50%)}
+
+/* AUTHOR PHOTO */
+.photo-wrap{border-radius:8px;overflow:hidden;position:relative}
+.photo-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(31,58,92,.18))}
+.photo-wrap .stripe{position:absolute;left:-10px;top:26px;width:64px;height:8px;background:var(--yellow);z-index:2}
+.photo-bg{background-image:url('assets/dra-ana-luisa.jpg');background-size:cover;background-position:center top}
+
+/* SECTION OPENER */
+.opener{display:grid;grid-template-columns:.88fr 1.12fr;height:100%}
+.op-l{padding:76px 60px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;color:#fff}
+.op-l .bg-num{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:200px;line-height:.88;letter-spacing:-.06em;color:rgba(255,255,255,.15);position:absolute;bottom:56px;right:-6px}
+.op-l .tag{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:600}
+.op-l h2{font-family:'Fraunces',serif;font-weight:400;font-size:42px;line-height:1.04;color:#fff;margin-top:14px}
+.op-l h2 em{color:var(--yellow);font-style:italic;font-weight:300}
+.op-l p{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:19px;color:rgba(255,255,255,.82);line-height:1.45;margin-top:12px}
+.op-r{padding:76px 60px;display:flex;flex-direction:column;justify-content:center;gap:26px;background:var(--paper-warm)}
+
+/* BAR */
+.bar{height:10px;background:var(--sky-soft);border-radius:999px;overflow:hidden}
+.bar>span{display:block;height:100%;background:var(--blue);border-radius:999px}
+.bar.teal>span{background:#2F6B6C}.bar.teal{background:var(--teal-soft)}
+.bar.yellow>span{background:#D4A500}.bar.yellow{background:var(--yellow-soft)}
+.bar.red>span{background:var(--red)}.bar.red{background:var(--pink-soft)}
+
+/* TOC */
+.toc-row{display:grid;grid-template-columns:36px 34px 1fr auto;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--rule)}
+.toc-row .n{font-family:'Fraunces',serif;font-size:19px;color:var(--blue);font-weight:500;font-style:italic}
+.toc-row .ic{width:32px;height:32px;border-radius:50%;background:var(--sky-soft);display:flex;align-items:center;justify-content:center;color:var(--blue-ink)}
+.toc-row .ic svg{width:15px;height:15px}
+.toc-row .ttl{font-family:'Fraunces',serif;font-size:18.5px;color:var(--blue-ink);font-weight:400}
+.toc-row .ttl .sub{display:block;font-family:'Inter',sans-serif;font-size:11.5px;color:var(--ink-soft);font-weight:400;margin-top:2px}
+.toc-row .pg{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft)}
+.toc-part{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);font-weight:700;padding:16px 0 4px;border-bottom:2px solid var(--blue);margin-bottom:2px}
+
+/* PLATE */
+.plate{border-radius:6px;overflow:hidden;background:repeating-linear-gradient(135deg,rgba(31,58,92,.05) 0 2px,transparent 2px 18px),linear-gradient(180deg,var(--sky-soft),var(--paper-warm));display:flex;align-items:center;justify-content:center;color:var(--blue-ink)}
+.plate .stamp{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border:1px solid var(--blue-ink);border-radius:3px;background:rgba(251,248,243,.85)}
+.plate.warm{background:repeating-linear-gradient(135deg,rgba(122,70,60,.06) 0 2px,transparent 2px 18px),linear-gradient(180deg,var(--pink-soft),var(--yellow-soft))}
+
+/* BACK */
+.back{background:var(--blue-ink);color:#fff}
+.back .pi{padding:72px 80px}
+
+/* DECO */
+.blob{position:absolute;border-radius:50%;pointer-events:none;opacity:.22;background:var(--yellow)}
+.blob.sky{background:var(--sky);opacity:.34}
+.blob.pink{background:var(--pink);opacity:.28}
+.blob.teal{background:var(--teal);opacity:.3}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+
+/* DROPCAP */
+.dropcap::first-letter{font-family:'Fraunces',serif;font-weight:400;font-style:italic;float:left;font-size:76px;line-height:.84;color:var(--blue);padding:6px 13px 0 0}
+
+.row{display:flex;align-items:center;gap:12px}
+.mt-a{margin-top:auto}
+
+@media print{
+  @page{size:A4 portrait;margin:0}
+  html,body{background:#fff!important;padding:0!important;margin:0!important;gap:0!important;display:block!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .page{box-shadow:none!important;border-radius:0!important;width:210mm!important;height:297mm!important;aspect-ratio:auto!important;margin:0!important;break-after:page;page-break-after:always;break-inside:avoid;overflow:hidden!important}
+  .page:last-child{break-after:auto;page-break-after:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ 01 · CAPA ═══ -->
+<section class="page cover">
+  <svg class="cvr-graphic" viewBox="0 0 470 470" fill="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A5CAE0"/><stop offset="1" stop-color="#5285B7"/></linearGradient>
+    </defs>
+    <circle cx="235" cy="235" r="200" fill="url(#g1)" opacity=".3"/>
+    <circle cx="235" cy="235" r="144" fill="#FDDB5C" opacity=".52"/>
+    <circle cx="235" cy="235" r="90" fill="#92D4D5" opacity=".88"/>
+    <g transform="translate(166,98)">
+      <path d="M68 0 C38 0 8 38 8 86 L8 152 C8 176 28 190 48 186 L48 152 L88 152 L88 186 C108 190 128 176 128 152 L128 86 C128 38 98 0 68 0Z" fill="white" opacity=".82"/>
+      <ellipse cx="38" cy="114" rx="18" ry="26" fill="#5285B7" opacity=".45"/>
+      <ellipse cx="98" cy="114" rx="18" ry="26" fill="#5285B7" opacity=".45"/>
+      <ellipse cx="48" cy="54" rx="16" ry="20" fill="#92D4D5" opacity=".6"/>
+      <ellipse cx="88" cy="54" rx="16" ry="20" fill="#92D4D5" opacity=".6"/>
+      <line x1="68" y1="8" x2="68" y2="165" stroke="white" stroke-width="2.5" opacity=".6"/>
+    </g>
+  </svg>
+
+  <div class="pi" style="justify-content:space-between;z-index:2">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'Fraunces',serif;font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-ink)">
+        <span style="width:10px;height:10px;border-radius:50%;background:var(--blue);display:block"></span>
+        Dra. Ana Luísa Pacheco · Infectologia Pediátrica
+      </div>
+      <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;writing-mode:vertical-rl;transform:rotate(180deg)">Edição 01 · 2026</div>
+    </div>
+
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--blue-deep);display:inline-flex;align-items:center;gap:14px;margin-bottom:28px">
+        <span style="display:block;width:48px;height:1.5px;background:var(--blue-deep)"></span>Guia Prático · Pediatria
+      </div>
+      <div style="font-family:'Fraunces',serif;font-weight:400;font-size:68px;line-height:.96;letter-spacing:-.025em;color:var(--blue-ink);font-variation-settings:'opsz' 144">
+        Rinossinusite<br/>Pediátrica<br/><em style="font-style:italic;color:var(--blue);font-weight:300">na Prática</em>.
+      </div>
+      <div style="margin-top:24px;font-family:'Fraunces',serif;font-style:italic;font-size:21px;line-height:1.4;color:var(--ink-soft);max-width:520px;font-weight:300">Do diagnóstico à decisão clínica — baseado nas melhores evidências de 2026.</div>
+    </div>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;padding-top:24px;border-top:1px solid var(--rule)">
+      <div>
+        <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:5px">Autoria</div>
+        <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--blue-ink)">Dra. Ana Luísa Pacheco</div>
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-top:3px">Pediatra · Infectologista Pediátrica</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:5px">Baseado em</div>
+        <div style="font-family:'Fraunces',serif;font-size:15px;font-weight:500;color:var(--blue-ink)">Pediatrics 2024 · AAP · SIPPS 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 01 · CAPA ═══ -->
+
+
+<!-- ═══ 02 · SOBRE A AUTORA ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Sobre a Autora</span><span>Rinossinusite Pediátrica na Prática</span></div>
+
+    <div style="display:grid;grid-template-columns:290px 1fr;gap:52px;align-items:flex-start;flex:1">
+      <div>
+        <div class="photo-wrap photo-bg" style="aspect-ratio:3/4"><div class="stripe"></div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div class="ey">Autoria</div>
+        <h2 class="t" style="font-size:46px">Dra. Ana Luísa <em>Pacheco</em></h2>
+        <div class="lede">Pediatra e infectologista pediátrica — formadora de clínicos que decidem com mais rigor e segurança.</div>
+        <div class="rule"></div>
+        <p class="b">Médica pediatra e infectologista pediátrica com atuação consolidada na assistência especializada, ensino médico e produção científica. Dedicou-se à integração entre prática baseada em evidências, raciocínio clínico estruturado e ensino aplicado à rotina assistencial.</p>
+        <p class="b">Este guia integra quatro fontes de evidência de alta qualidade: meta-análise de Conway, Mueller e Shaikh (Pediatrics 2024), diretrizes AAP, consenso AAO-HNSF (Delphi) e Consenso SIPPS-SIP-SITIP 2026.</p>
+        <div class="box tip" style="margin-top:28px">
+          <div class="ico">"</div>
+          <div class="txt">"O problema não é a ausência de tratamento: é a ausência de diagnóstico rigoroso."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Sobre a Autora</span><b>02</b></div>
+</section>
+
+<!-- ═══ 03 · PREFÁCIO ═══ -->
+<section class="page">
+  <div class="blob" style="width:320px;height:320px;right:-110px;top:-110px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Prefácio</span><span>Como usar este guia</span></div>
+    <div class="ey">Prefácio</div>
+    <h2 class="t">O problema não é<br/>a ausência de <em>tratamento</em>.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:34px;align-items:flex-start;flex:1">
+      <div>
+        <p class="b dropcap">Estudos americanos mostram que até <strong>82% das crianças</strong> com sintomas nasais agudos recebem antibióticos, enquanto a taxa real de progressão de uma infecção viral para sinusite bacteriana genuína gira em torno de <strong>6 a 7%</strong>.</p>
+        <p class="b">O gap é impressionante — e o problema não é a ausência de tratamento. É a ausência de diagnóstico rigoroso. Este guia foi construído para fechar esse gap.</p>
+        <div class="rule"></div>
+        <div class="sc" style="margin-bottom:14px">Guia de leitura — tipos de destaque</div>
+        <ul class="bl" style="gap:10px">
+          <li><strong>Azul</strong> — conceitos-chave e sínteses.</li>
+          <li><strong>Âmbar</strong> — pérolas clínicas e nuances.</li>
+          <li><strong>Vermelho</strong> — alertas, condutas a evitar.</li>
+          <li><strong>Verde</strong> — recomendações com consenso forte.</li>
+        </ul>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="qcard">
+          <p>Diagnóstico preciso primeiro. Decisão terapêutica depois.</p>
+          <div class="att">— Princípio central deste guia</div>
+        </div>
+        <div class="box warn">
+          <div class="ico">!</div>
+          <div class="txt"><strong>82% prescrevem ATB.</strong> Apenas 6–7% têm sinusite bacteriana real. A diferença é o sobrediagnóstico que este guia ajuda a eliminar.</div>
+        </div>
+        <div class="box tip">
+          <div class="ico">★</div>
+          <div class="txt">Inclui dados do <strong>Pediatrics 2024</strong> — a síntese mais rigorosa disponível sobre eficácia de antibióticos em sinusite aguda pediátrica.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Prefácio</span><b>03</b></div>
+</section>
+
+<!-- ═══ 04 · SUMÁRIO I ═══ -->
+<section class="page">
+  <div class="blob sky" style="width:280px;height:280px;right:-90px;top:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Sumário</span><span>6 partes · 14 capítulos</span></div>
+    <div class="ey">Índice</div>
+    <h2 class="t" style="font-size:46px">Do diagnóstico<br/>à <em>decisão</em>.</h2>
+
+    <div style="margin-top:32px;flex:1">
+      <div class="toc-part">Parte I — Fundamentos</div>
+      <div class="toc-row"><span class="n">01</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/></svg></span><span class="ttl">Por que sinusite é difícil<span class="sub">Epidemiologia e o paradoxo terapêutico</span></span><span class="pg">p.06</span></div>
+      <div class="toc-row"><span class="n">02</span><span class="ic" style="background:var(--teal-soft);color:#2F6B6C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg></span><span class="ttl">Anatomia clínica por faixa etária<span class="sub">Risco orbitário, maxilar e intracraniano</span></span><span class="pg">p.07</span></div>
+      <div class="toc-row"><span class="n">03</span><span class="ic" style="background:var(--yellow-soft);color:#7A5A00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="ttl">Linha do tempo da doença<span class="sub">Aguda · Subaguda · Crônica · Recorrente</span></span><span class="pg">p.08</span></div>
+
+      <div class="toc-part" style="margin-top:22px">Parte II — Diagnóstico</div>
+      <div class="toc-row"><span class="n">04</span><span class="ic" style="background:var(--pink-soft);color:var(--red-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><span class="ttl">A curva viral<span class="sub">Secreção purulenta não é sinal de bactéria</span></span><span class="pg">p.09</span></div>
+      <div class="toc-row"><span class="n">05</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg></span><span class="ttl">Os três fenótipos<span class="sub">Motor do diagnóstico clínico</span></span><span class="pg">p.10</span></div>
+      <div class="toc-row"><span class="n">06</span><span class="ic" style="background:var(--yellow-soft);color:#7A5A00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2h6v4H9zM6 6h12v16H6z"/></svg></span><span class="ttl">Exames complementares<span class="sub">A regra do zero imagem de rotina</span></span><span class="pg">p.12</span></div>
+
+      <div class="toc-part" style="margin-top:22px">Parte III — Decisão Terapêutica</div>
+      <div class="toc-row"><span class="n">07</span><span class="ic" style="background:var(--green-soft);color:var(--green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span><span class="ttl">O que os dados dizem<span class="sub">Pediatrics 2024: NNT=6, NNH=16</span></span><span class="pg">p.13</span></div>
+      <div class="toc-row"><span class="n">08</span><span class="ic" style="background:var(--pink-soft);color:var(--red-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l10 18H2z"/><path d="M12 9v5M12 17h.01"/></svg></span><span class="ttl">Quem tratar, quem observar<span class="sub">Zona cinzenta AAP e espera vigilante</span></span><span class="pg">p.14</span></div>
+    </div>
+  </div>
+  <div class="folio"><span>Sumário</span><b>04</b></div>
+</section>
+
+<!-- ═══ 05 · SUMÁRIO II ═══ -->
+<section class="page">
+  <div class="blob teal" style="width:280px;height:280px;left:-90px;bottom:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Sumário</span><span>Partes IV · V · VI</span></div>
+
+    <div style="margin-top:8px;flex:1">
+      <div class="toc-part">Parte IV — Antibioticoterapia</div>
+      <div class="toc-row"><span class="n">09</span><span class="ic" style="background:var(--teal-soft);color:#2F6B6C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/></svg></span><span class="ttl">Microbiologia e racional terapêutico<span class="sub">Os três patógenos e a era pós-vacina</span></span><span class="pg">p.15</span></div>
+      <div class="toc-row"><span class="n">10</span><span class="ic" style="background:var(--green-soft);color:var(--green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v6M9 6l3-3 3 3M4 14a8 8 0 0 0 16 0"/></svg></span><span class="ttl">Prescrição de primeira linha<span class="sub">Doses, duração e prescription card</span></span><span class="pg">p.16</span></div>
+      <div class="toc-row"><span class="n">11</span><span class="ic" style="background:var(--pink-soft);color:var(--red-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8M21 21v-7h-7"/></svg></span><span class="ttl">Falha terapêutica<span class="sub">Checkpoint das 48–72 horas</span></span><span class="pg">p.17</span></div>
+      <div class="toc-row"><span class="n">12</span><span class="ic" style="background:var(--yellow-soft);color:#7A5A00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l10 18H2z"/></svg></span><span class="ttl">Situações especiais<span class="sub">Alergia à penicilina e terapia de suporte</span></span><span class="pg">p.17</span></div>
+
+      <div class="toc-part" style="margin-top:22px">Parte V — Recorrência e Cronicidade</div>
+      <div class="toc-row"><span class="n">13</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="ttl">Sinusite recorrente e crônica<span class="sub">Causas subjacentes e encaminhamento</span></span><span class="pg">p.18</span></div>
+
+      <div class="toc-part" style="margin-top:22px">Parte VI — Complicações e Síntese</div>
+      <div class="toc-row"><span class="n">★</span><span class="ic" style="background:var(--pink-soft);color:var(--red-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l10 18H2z"/><path d="M12 9v5M12 17h.01"/></svg></span><span class="ttl">Complicações e red flags<span class="sub">Reconhecer antes que seja tarde</span></span><span class="pg">p.19</span></div>
+      <div class="toc-row"><span class="n">✓</span><span class="ic" style="background:var(--yellow-soft);color:#7A5A00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l4 4L19 6"/></svg></span><span class="ttl">Regras de Ouro e Checklist<span class="sub">Síntese final — ferramenta à beira-leito</span></span><span class="pg">p.20</span></div>
+    </div>
+  </div>
+  <div class="folio"><span>Sumário</span><b>05</b></div>
+</section>
+
+<!-- ═══ 06 · CAP 1 — EPIDEMIOLOGIA ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 01 · Epidemiologia</span><span>Por que sinusite é difícil</span></div>
+    <div class="ey"><span class="n">1</span>Epidemiologia</div>
+    <h2 class="t">Números que<br/><em>justificam</em> atenção.</h2>
+    <div class="lede">Mais de 20 milhões de prescrições anuais nos EUA. O pico de incidência está entre 2 e 6 anos.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:36px;align-items:flex-start;flex:1">
+      <div>
+        <p class="b">Cerca de <strong>7,5%</strong> das infecções das vias aéreas superiores em crianças evoluem para sinusite aguda. A progressão de uma IVAS viral simples para sinusite bacteriana confirmada ocorre em apenas <strong>0,5 a 2%</strong> das infecções respiratórias superiores.</p>
+        <div class="rule"></div>
+        <div class="sc" style="margin-bottom:16px">A solução para ambas as armadilhas</div>
+        <div class="box green">
+          <div class="ico">✓</div>
+          <div class="txt">Um protocolo diagnóstico rigoroso baseado em critérios clínicos. <strong>Não em exames de rotina. Não em antibióticos automáticos.</strong></div>
+        </div>
+        <div style="margin-top:20px" class="box tip">
+          <div class="ico">i</div>
+          <div class="txt">A pediatria difere do adulto: seios etmoidais são os únicos completamente desenvolvidos ao nascimento — maior risco de complicação orbitária em menores de 5 anos.</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div class="tile">
+          <div class="iw pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l10 18H2z"/></svg></div>
+          <div class="lbl">Prescrições de ATB</div>
+          <div class="big"><em>82</em>%</div>
+          <p>Crianças com sintomas nasais que recebem antibiótico na prática clínica.</p>
+        </div>
+        <div class="tile">
+          <div class="iw green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l4 4L19 6"/></svg></div>
+          <div class="lbl">Sinusite bacteriana real</div>
+          <div class="big"><em>6–7</em>%</div>
+          <p>Taxa real de progressão de IVAS viral para sinusite bacteriana genuína.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>01 · Epidemiologia</span><b>06</b></div>
+</section>
+
+<!-- ═══ 07 · CAP 2 — ANATOMIA ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 02 · Anatomia Clínica</span><span>Risco por faixa etária</span></div>
+    <div class="ey"><span class="n">2</span>Anatomia</div>
+    <h2 class="t">O risco muda<br/>com a <em>idade</em>.</h2>
+    <div class="lede">As paredes ósseas são mais delgadas na criança. Quando ocorrem, as complicações tendem a ser mais rápidas e menos previsíveis.</div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;margin-top:36px;flex:1">
+      <div class="tile" style="flex-direction:row;gap:28px;align-items:flex-start;padding:26px 30px;border-left:5px solid var(--pink)">
+        <div style="flex:none;width:130px">
+          <span class="chip red" style="font-size:10px;margin-bottom:10px;display:inline-flex">Menores de 5 anos</span>
+          <div style="font-family:'Fraunces',serif;font-size:15px;color:var(--ink-soft);margin-top:6px">Seios etmoidais</div>
+        </div>
+        <div>
+          <h4 style="font-family:'Fraunces',serif;font-size:22px;color:var(--blue-ink);margin-bottom:10px">Risco orbitário</h4>
+          <p class="b" style="font-size:14px">Contiguidade anatômica com a órbita (lâmina papyracea). Complicação típica: celulite orbitária e abscesso subperiosteal. <strong>Qualquer edema palpebral em contexto de sinusite é emergência — TC com contraste imediata.</strong></p>
+        </div>
+      </div>
+      <div class="tile" style="flex-direction:row;gap:28px;align-items:flex-start;padding:26px 30px;border-left:5px solid var(--blue)">
+        <div style="flex:none;width:130px">
+          <span class="chip" style="font-size:10px;margin-bottom:10px;display:inline-flex">5 a 12 anos</span>
+          <div style="font-family:'Fraunces',serif;font-size:15px;color:var(--ink-soft);margin-top:6px">Seios maxilares</div>
+        </div>
+        <div>
+          <h4 style="font-family:'Fraunces',serif;font-size:22px;color:var(--blue-ink);margin-bottom:10px">Quadro clássico</h4>
+          <p class="b" style="font-size:14px">Apresentação mais previsível, com dor facial e congestão. Menor risco de complicação grave nesta faixa. Adenoides volumosas adicionam reservatório bacteriano inexistente no adulto.</p>
+        </div>
+      </div>
+      <div class="tile" style="flex-direction:row;gap:28px;align-items:flex-start;padding:26px 30px;border-left:5px solid var(--yellow)">
+        <div style="flex:none;width:130px">
+          <span class="chip yellow" style="font-size:10px;margin-bottom:10px;display:inline-flex">Adolescente ♂</span>
+          <div style="font-family:'Fraunces',serif;font-size:15px;color:var(--ink-soft);margin-top:6px">Seios frontais</div>
+        </div>
+        <div>
+          <h4 style="font-family:'Fraunces',serif;font-size:22px;color:var(--blue-ink);margin-bottom:10px">Risco intracraniano</h4>
+          <p class="b" style="font-size:14px">Seios frontais completam desenvolvimento na adolescência. Empiema subdural, abscesso cerebral, Tumor de Pott. <strong>Cefaleia frontal intensa, febril, em adolescente masculino: suspeita imediata de complicação intracraniana.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>02 · Anatomia clínica</span><b>07</b></div>
+</section>
+
+<!-- ═══ 08 · CAP 3 — LINHA DO TEMPO ═══ -->
+<section class="page">
+  <div class="blob teal" style="width:280px;height:280px;right:-90px;top:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 03 · Linha do Tempo</span><span>Espectro da doença</span></div>
+    <div class="ey"><span class="n">3</span>Classificação temporal</div>
+    <h2 class="t">A conduta muda<br/>com o <em>tempo</em>.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;border-radius:10px;overflow:hidden;border:1px solid var(--rule);margin-top:32px">
+      <div style="padding:26px 22px;background:var(--sky-soft)">
+        <div class="sc" style="color:var(--blue-deep);margin-bottom:12px">Aguda</div>
+        <div style="font-family:'Fraunces',serif;font-size:36px;color:var(--blue-ink);font-weight:500;margin-bottom:12px">&lt; 30 dias</div>
+        <p style="font-size:13px;line-height:1.6;color:var(--ink)">Diagnóstico 100% clínico pelos 3 fenótipos. ATB conforme fenótipo e fatores de risco.</p>
+      </div>
+      <div style="padding:26px 22px;background:var(--yellow-soft);border-left:1px solid var(--rule)">
+        <div class="sc" style="color:#7A5A00;margin-bottom:12px">Subaguda</div>
+        <div style="font-family:'Fraunces',serif;font-size:36px;color:var(--blue-ink);font-weight:500;margin-bottom:12px">30–90d</div>
+        <p style="font-size:13px;line-height:1.6;color:var(--ink)">Zona de transição. Amox-Clavulanato empírica. Sem resposta → especialista.</p>
+      </div>
+      <div style="padding:26px 22px;background:var(--pink-soft);border-left:1px solid var(--rule)">
+        <div class="sc" style="color:var(--red-deep);margin-bottom:12px">Crônica</div>
+        <div style="font-family:'Fraunces',serif;font-size:36px;color:var(--blue-ink);font-weight:500;margin-bottom:12px">&gt; 90 dias</div>
+        <p style="font-size:13px;line-height:1.6;color:var(--ink)">ATB sistêmico: sem indicação. Encaminhar ao ORL / infectologista. Investigar comorbidades.</p>
+      </div>
+      <div style="padding:26px 22px;background:var(--teal-soft);border-left:1px solid var(--rule)">
+        <div class="sc" style="color:#2F6B6C;margin-bottom:12px">Recorrente</div>
+        <div style="font-family:'Fraunces',serif;font-size:32px;color:var(--blue-ink);font-weight:500;margin-bottom:12px">≥ 3/6m</div>
+        <p style="font-size:13px;line-height:1.6;color:var(--ink)">Investigar causa base: rinite alérgica, adenoide, imunodeficiência.</p>
+      </div>
+    </div>
+
+    <div class="rule" style="margin:36px 0 28px"></div>
+
+    <div class="sc" style="margin-bottom:22px">Curva viral típica — o que acontece no resfriado comum</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <div style="padding:20px 18px;border-top:3px solid var(--blue)">
+        <div class="sc" style="margin-bottom:8px">Dias 1–2</div>
+        <div style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);font-weight:500;margin-bottom:8px">Pico constitucional</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--ink)">Febre alta — desaparece em 24–48h.</p>
+      </div>
+      <div style="padding:20px 18px;border-top:3px solid var(--teal)">
+        <div class="sc" style="margin-bottom:8px">Dias 3–6</div>
+        <div style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);font-weight:500;margin-bottom:8px">Pico respiratório</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--ink)">Secreção purulenta — <strong>ainda viral</strong>. Não prescrever ATB.</p>
+      </div>
+      <div style="padding:20px 18px;border-top:3px solid var(--yellow)">
+        <div class="sc" style="margin-bottom:8px">Dias 7–9</div>
+        <div style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);font-weight:500;margin-bottom:8px">Melhora gradual</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--ink)">Secreção clara ou resolução. Tosse pode persistir.</p>
+      </div>
+      <div style="padding:20px 18px;border-top:3px solid var(--red)">
+        <div class="sc" style="margin-bottom:8px">Dia 10+</div>
+        <div style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);font-weight:500;margin-bottom:8px">Alerta clínico</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--ink)">Sem melhora → F1. Nova febre → F3.</p>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>03 · Linha do tempo</span><b>08</b></div>
+</section>
+
+<!-- ═══ 09 · CAP 5 — OS TRÊS FENÓTIPOS ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 05 · Os Três Fenótipos</span><span>Motor do diagnóstico</span></div>
+    <div class="ey"><span class="n">5</span>Diagnóstico clínico</div>
+    <h2 class="t">Três fenótipos,<br/><em>diagnóstico clínico</em>.</h2>
+    <div class="lede">Um único fenótipo presente confirma o diagnóstico. Não há exame complementar que acrescente informação útil no primeiro episódio.</div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;margin-top:30px;flex:1">
+      <div class="fcard" style="border:1.5px solid var(--blue);background:#fff">
+        <div style="flex:none;width:148px">
+          <div class="badge" style="background:var(--sky-soft);color:var(--blue-ink)">Fenótipo 1</div>
+          <div style="font-family:'Fraunces',serif;font-size:20px;color:var(--blue-ink);font-weight:500;margin-top:10px;line-height:1.15">Curso<br/>Persistente</div>
+        </div>
+        <div style="flex:1">
+          <div class="crit" style="background:var(--paper-warm)">Obstrução e/ou secreção nasal e/ou tosse diurna por <strong>≥ 10 dias sem qualquer melhora</strong>.</div>
+          <p>Conduta: ATB ou espera vigilante de 72h. <em>Melhora nos dias 5–7 seguida de piora = Fenótipo 3.</em></p>
+        </div>
+      </div>
+
+      <div class="fcard" style="border:1.5px solid var(--red);background:#fff">
+        <div style="flex:none;width:148px">
+          <div class="badge" style="background:var(--pink-soft);color:var(--red-deep)">Fenótipo 2</div>
+          <div style="font-family:'Fraunces',serif;font-size:20px;color:var(--blue-ink);font-weight:500;margin-top:10px;line-height:1.15">Início<br/>Severo</div>
+        </div>
+        <div style="flex:1">
+          <div class="crit" style="background:#FCE9EA"><strong>Febre ≥ 39°C</strong> associada a <strong>secreção purulenta espessa</strong> por <strong>3 a 4 dias consecutivos</strong>.</div>
+          <p><strong style="color:var(--red-deep)">ATB imediato — espera vigilante não indicada.</strong> Febre viral desaparece em 24–48h; a manutenção reflete carga bacteriana.</p>
+        </div>
+      </div>
+
+      <div class="fcard" style="border:1.5px solid var(--yellow);background:#fff">
+        <div style="flex:none;width:148px">
+          <div class="badge" style="background:var(--yellow-soft);color:#7A5A00">Fenótipo 3</div>
+          <div style="font-family:'Fraunces',serif;font-size:20px;color:var(--blue-ink);font-weight:500;margin-top:10px;line-height:1.15">Double<br/>Sickening</div>
+        </div>
+        <div style="flex:1">
+          <div class="crit" style="background:var(--yellow-soft)">Piora súbita após melhora inicial: <strong>nova febre após período afebril</strong> ou aumento de secreção após dias de melhora.</div>
+          <p><strong style="color:var(--red-deep)">ATB imediato — espera vigilante não indicada.</strong> Cronologia típica: melhora dias 3–5 → piora dia 6–7.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>05 · Os três fenótipos</span><b>09</b></div>
+</section>
+
+<!-- ═══ 10 · CAP 6 — EXAMES ═══ -->
+<section class="page">
+  <div class="blob pink" style="width:300px;height:300px;right:-100px;top:-100px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 06 · Exames Complementares</span><span>A regra do zero imagem</span></div>
+    <div class="ey"><span class="n">6</span>Exames</div>
+    <h2 class="t">Zero imagem<br/>de <em>rotina</em>.</h2>
+    <div class="lede" style="font-size:19px;margin-top:12px">A mucosa nasal é contínua com a dos seios. Um resfriado viral no 5º dia mostra as mesmas alterações na TC que uma sinusite bacteriana.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:22px;align-items:flex-start;flex:1">
+      <div>
+        <div class="box warn" style="margin-bottom:16px">
+          <div class="ico">✕</div>
+          <div class="txt"><strong>Não pedir — regra absoluta:</strong>
+          <br/>• Raio-X de seios da face
+          <br/>• TC sem contraste de rotina
+          <br/>• Swab nasal no 1º episódio
+          <br/>• Culturas em infecções &lt; 4 semanas</div>
+        </div>
+
+        <div class="g2" style="gap:14px">
+          <div class="tile" style="background:var(--pink-soft);border:none;padding:16px 18px">
+            <div class="lbl">Raio-X</div>
+            <div class="no"></div><span style="font-size:13px;font-weight:600">Sem indicação</span>
+            <p>Falsos positivos e negativos muito frequentes.</p>
+          </div>
+          <div class="tile" style="background:var(--yellow-soft);border:none;padding:16px 18px">
+            <div class="lbl">TC c/ contraste</div>
+            <div class="mx"></div><span style="font-size:13px;font-weight:600">Só complicação</span>
+            <p>Suspeita orbitária ou intracraniana.</p>
+          </div>
+        </div>
+
+        <div class="box green" style="margin-top:20px">
+          <div class="ico">✓</div>
+          <div class="txt"><strong>Única indicação real:</strong> suspeita clínica de complicação orbitária ou intracraniana. TC com contraste + internação imediata.</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sc" style="margin-bottom:18px">Red flags — TC com contraste imediata</div>
+        <div style="background: #FCE9EA; border: 1.5px solid var(--red); border-radius: 10px; padding: 24px 26px; height: 512px">
+          <ul class="bl red" style="gap:12px">
+            <li>Edema ou eritema periorbitário.</li>
+            <li>Proptose do globo ocular.</li>
+            <li>Dor à movimentação ocular.</li>
+            <li>Oftalmoplegia.</li>
+            <li>Cefaleia intensa e progressiva.</li>
+            <li>Fotofobia.</li>
+            <li>Sinais meníngeos.</li>
+            <li>Déficits neurológicos ou convulsões.</li>
+            <li>Edema frontal — Tumor de Pott.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>06 · Exames complementares</span><b>10</b></div>
+</section>
+
+<!-- ═══ 11 · CAP 7 — EVIDÊNCIAS ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 07 · Evidências</span><span>Meta-análise Pediatrics 2024</span></div>
+    <div class="ey"><span class="n">7</span>Evidências</div>
+    <h2 class="t">O que os dados<br/><em>realmente</em> dizem.</h2>
+    <div class="lede">Conway, Mueller e Shaikh (Pediatrics 2024): 6 ECRs de alta qualidade, 956 crianças com diagnóstico rigoroso.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:28px;align-items:flex-start;flex:1">
+      <div>
+        <div class="tile" style="background:var(--sky-soft);border:none;margin-bottom:18px;padding:22px 24px">
+          <div class="lbl">Resolução sem antibiótico — grupo placebo (n=431)</div>
+          <div class="big" style="font-size:56px"><em>59,2</em>%</div>
+          <p>Crianças com RSBA confirmada que melhoraram sem ATB. <strong>Zero complicações graves no grupo placebo.</strong></p>
+        </div>
+        <div class="g2" style="gap:12px">
+          <div class="tile" style="background:var(--green-soft);border:none;padding:16px 18px">
+            <div class="lbl">Benefício</div>
+            <div style="font-family:'Fraunces',serif;font-size:28px;color:var(--green);font-weight:500">NNT=6</div>
+            <p>Falha: 40,8% → 23,0%. Tratar 6 para prevenir 1 falha extra.</p>
+          </div>
+          <div class="tile" style="background:var(--pink-soft);border:none;padding:16px 18px">
+            <div class="lbl">Custo</div>
+            <div style="font-family:'Fraunces',serif;font-size:28px;color:var(--red);font-weight:500">NNH=16</div>
+            <p>Diarreia: 7,2% → 13,4%. 1 caso extra a cada 16 tratadas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="qcard" style="padding:22px 26px">
+          <p style="font-size:20px">A pergunta correta não é "o ATB funciona?" — é "para qual paciente o benefício supera o risco?"</p>
+          <div class="att">— Conway, Mueller e Shaikh · Pediatrics 2024</div>
+        </div>
+        <div class="box tip" style="padding: 16px 20px; height: 193px; text-align: left; justify-content: flex-start">
+          <div class="ico" style="width:34px;height:34px;font-size:15px">i</div>
+          <div class="txt" style="font-size:13px">O ATB reduz sintomas em apenas <strong>2 dias</strong> em média (7 vs. 9 dias). Diferença real, mas clinicamente modesta para casos leves. A espera vigilante é estatisticamente segura.</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:8px;overflow:hidden">
+          <table class="tbl" style="font-size:12px">
+            <thead><tr>
+              <th style="padding:9px 12px">Desfecho</th>
+              <th style="background:var(--blue);padding:9px 12px">Placebo</th>
+              <th style="background:#2F6B6C;padding:9px 12px">ATB</th>
+            </tr></thead>
+            <tbody>
+              <tr><td style="padding:9px 12px">Falha terapêutica</td><td style="padding:9px 12px">40,8%</td><td style="padding:9px 12px">23,0%</td></tr>
+              <tr><td style="padding:9px 12px">Diarreia</td><td style="padding:9px 12px">7,2%</td><td style="padding:9px 12px">13,4%</td></tr>
+              <tr><td style="padding:9px 12px">Complicações graves</td><td style="padding:9px 12px">0/431</td><td style="padding:9px 12px">0/475</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>07 · Evidências</span><b>11</b></div>
+</section>
+
+<!-- ═══ 12 · CAP 8 — DECISÃO ═══ -->
+<section class="page">
+  <div class="blob" style="width:280px;height:280px;left:-90px;bottom:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 08 · Tomada de Decisão</span><span>Tratar ou observar</span></div>
+    <div class="ey"><span class="n">8</span>Decisão terapêutica</div>
+    <h2 class="t">Tratar ou<br/><em>observar</em>?</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--rule); margin-top: 30px; flex: 1; align-items: stretch; height: 620px; border-color: rgba(255, 255, 255, 0)">
+      <div style="padding: 32px 34px; background: #FCE9EA; border-right: 1px solid var(--rule); display: flex; flex-direction: column; gap: 20px; height: 622px">
+        <div>
+          <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--red-deep);margin-bottom:10px">ATB Imediato</div>
+          <div style="font-family:'Fraunces',serif;font-size:28px;color:var(--red-deep);font-weight:600">Sem espera.</div>
+        </div>
+        <ul class="bl red" style="gap:12px">
+          <li><strong>Fenótipo 2</strong> — febre ≥39°C + purulência por 3–4 dias.</li>
+          <li><strong>Fenótipo 3</strong> — agravamento bifásico.</li>
+          <li>Qualquer fenótipo com sinais de complicação orbitária ou intracraniana.</li>
+          <li>Imunodeficiência conhecida.</li>
+          <li>Fenótipo 1 com alto impacto: sono, escola, alimentação.</li>
+          <li>Fatores de risco para resistência bacteriana.</li>
+        </ul>
+      </div>
+
+      <div style="padding: 32px 34px; background: var(--green-soft); display: flex; flex-direction: column; gap: 20px; height: 622px">
+        <div>
+          <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--green);margin-bottom:10px">Espera Vigilante — 72h</div>
+          <div style="font-family:'Fraunces',serif;font-size:28px;color:#1A5C38;font-weight:600">Fenótipo 1 leve.</div>
+        </div>
+        <div style="font-size:13.5px;color:#1A5C38;font-weight:500">Válida quando <em>todos</em> presentes:</div>
+        <ul class="bl green" style="gap:12px">
+          <li>Sintomas leves, baixo impacto na qualidade de vida.</li>
+          <li>Família confiável com acesso a reavaliação.</li>
+          <li>Ausência de fatores de risco para resistência.</li>
+          <li>Preferência familiar informada após discussão.</li>
+        </ul>
+        <div style="background:rgba(255,255,255,.65);border-radius:8px;padding:16px 18px;margin-top:auto">
+          <p style="font-size:13px;color:#1A5C38;line-height:1.55;font-style:italic">"Sem ATB, melhora em ~9 dias. Com ATB, em ~7 dias, mas com mais chance de diarreia. Ambas são seguras."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>08 · Tomada de decisão</span><b>12</b></div>
+</section>
+
+<!-- ═══ 13 · CAP 9 — MICROBIOLOGIA ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 09 · Microbiologia</span><span>Racional terapêutico</span></div>
+    <div class="ey"><span class="n">9</span>Microbiologia</div>
+    <h2 class="t">Três patógenos,<br/><em>uma lógica</em>.</h2>
+    <div class="lede">A microbiologia é previsível. Entender cada patógeno explica diretamente a escolha do antibiótico.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:36px;align-items:flex-start;flex:1">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px;font-weight:600;color:var(--ink)">S. pneumoniae <span>~30%</span></div>
+          <div class="bar"><span style="width:76%"></span></div>
+          <p style="font-size:13px;color:var(--ink-soft);margin-top:6px;line-height:1.5">Resistência por PBP — superada por altas doses de amoxicilina. Queda pós-PCV, mas ainda presente.</p>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px;font-weight:600;color:var(--ink)">H. influenzae NTHi <span>~30%</span></div>
+          <div class="bar teal"><span style="width:76%"></span></div>
+          <p style="font-size:13px;color:var(--ink-soft);margin-top:6px;line-height:1.5">50% produzem beta-lactamase → necessitam clavulanato para cobertura adequada.</p>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px;font-weight:600;color:var(--ink)">M. catarrhalis <span>~10%</span></div>
+          <div class="bar yellow"><span style="width:26%"></span></div>
+          <p style="font-size:13px;color:var(--ink-soft);margin-top:6px;line-height:1.5">~100% produzem beta-lactamase — amoxicilina isolada não cobre.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="box warn">
+          <div class="ico">✕</div>
+          <div class="txt"><strong>Não usar empiricamente:</strong> Azitromicina, Claritromicina e SMX-TMP têm resistência &gt;20% nos patógenos principais. Antibióticos tópicos nasais: contraindicados na sinusite aguda.</div>
+        </div>
+        <div class="box teal">
+          <div class="ico">i</div>
+          <div class="txt"><strong>Era pós-vacina:</strong> PCV reduziu S. pneumoniae virulento, mas NTHi e M. catarrhalis (produtores de beta-lactamase) cresceram proporcionalmente — fundamento para uso crescente de amox-clavulanato.</div>
+        </div>
+        <div class="box blue">
+          <div class="ico">→</div>
+          <div class="txt"><strong>Lógica da alta dose:</strong> S. pneumoniae com resistência intermediária é superado por concentrações elevadas de amoxicilina no sítio de infecção.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>09 · Microbiologia</span><b>13</b></div>
+</section>
+
+<!-- ═══ 14 · CAP 10 — PRESCRIÇÃO ═══ -->
+<section class="page">
+  <div class="blob sky" style="width:260px;height:260px;right:-80px;top:-80px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 10 · Prescrição 1ª Linha</span><span>Antibioticoterapia de precisão</span></div>
+    <div class="ey"><span class="n">10</span>Prescrição</div>
+    <h2 class="t">Prescription<br/><em>card</em> de referência.</h2>
+    <div class="lede">Amoxicilina permanece a primeira escolha. A escalada para amox-clavulanato segue critérios claros.</div>
+
+    <div style="margin-top:32px;border-radius:10px;overflow:hidden;border:1px solid var(--rule)">
+      <table class="tbl" style="width:100%">
+        <thead><tr>
+          <th style="width:26%">Fenótipo</th>
+          <th style="background:var(--blue);width:24%">Antibiótico</th>
+          <th style="background:#2F6B6C;width:30%">Dose</th>
+          <th style="background:var(--red-deep);width:20%">Duração</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>1 — sem fatores de risco</td><td>Amoxicilina</td><td>45 mg/kg/dia · 2 doses/dia</td><td>10 dias</td></tr>
+          <tr><td>1 — com fatores de risco</td><td>Amox-Clavulanato</td><td>80–90 mg/kg/dia · 2 doses/dia</td><td>10 dias</td></tr>
+          <tr><td>2 — Severo</td><td>Amox-Clavulanato</td><td>90 mg/kg/dia · 3 doses/dia</td><td>10–14 dias</td></tr>
+          <tr><td>3 — Bifásico</td><td>Amox-Clavulanato</td><td>90 mg/kg/dia · 3 doses/dia</td><td>10–14 dias</td></tr>
+          <tr><td>Subaguda (30–90d)</td><td>Amox-Clavulanato</td><td>90 mg/kg/dia</td><td>10 dias</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px;flex:1;align-items:start">
+      <div class="box warn">
+        <div class="ico">!</div>
+        <div class="txt"><strong>Alta dose obrigatória se qualquer fator de risco presente:</strong> frequenta creche · idade &lt; 2 anos · ATB nos últimos 30 dias · doença moderada a severa.</div>
+      </div>
+      <div class="box blue" style="height: 180px">
+        <div class="ico">i</div>
+        <div class="txt">Duração mínima: <strong>10 dias</strong> (AAP e SIPPS). Cursos mais curtos não são recomendados em pediatria — diferente do adulto.</div>
+      </div>
+    </div>
+
+    <div class="box tip" style="margin-top:18px">
+      <div class="ico">★</div>
+      <div class="txt"><strong>Máximo:</strong> amoxicilina 3–4g/dia; amox-clavulanato 4g/dia do componente amoxicilina. Dividir em 2 doses (45–90 mg/kg/dia) ou 3 doses (90 mg/kg/dia nos fenótipos severos).</div>
+    </div>
+  </div>
+  <div class="folio"><span>10 · Prescrição 1ª linha</span><b>14</b></div>
+</section>
+
+<!-- ═══ 15 · CAP 11–12 — FALHA + ALERGIA ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulos 11–12 · Falha e Situações Especiais</span><span>Escalonamento</span></div>
+
+    <!-- ROW 1: headers side by side -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start">
+      <div>
+        <div class="ey"><span class="n">11</span>Falha terapêutica</div>
+        <h3 class="st">Checkpoint das <em>48–72h</em>.</h3>
+        <p class="b" style="margin-top:10px">Reavalie se houver ausência de qualquer melhora após 3 dias, ou piora com nova febre. <strong>Melhora lenta não é falha.</strong></p>
+      </div>
+      <div>
+        <div class="ey"><span class="n">12</span>Alergia à penicilina</div>
+        <h3 class="st">Alternativas <em>seguras</em>.</h3>
+        <p class="b" style="margin-top:10px">80–90% dos rotulados como alérgicos toleram a medicação em teste de provocação. Histórico impreciso é muito comum.</p>
+      </div>
+    </div>
+
+    <div class="rule" style="margin:24px 0"></div>
+
+    <!-- ROW 2: escada + tabela side by side -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;flex:1">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="sc" style="margin-bottom:4px">Escada de resgate</div>
+        <div style="border:1px solid var(--rule);border-radius:10px;overflow:hidden">
+          <div style="display:flex;gap:14px;padding:14px 16px;align-items:flex-start;border-bottom:1px solid var(--rule)">
+            <div style="flex:none;width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:500;font-size:16px">1</div>
+            <div><strong style="font-size:14px;color:var(--blue-ink)">Falha na observação</strong><p style="font-size:13px;color:var(--ink-soft);margin-top:2px">Iniciar Amox-Clavulanato conforme fatores de risco.</p></div>
+          </div>
+          <div style="display:flex;gap:14px;padding:14px 16px;align-items:flex-start;border-bottom:1px solid var(--rule)">
+            <div style="flex:none;width:32px;height:32px;border-radius:50%;background:var(--yellow);color:var(--blue-ink);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:500;font-size:16px">2</div>
+            <div><strong style="font-size:14px;color:var(--blue-ink)">Falha com amoxicilina simples</strong><p style="font-size:13px;color:var(--ink-soft);margin-top:2px">Escalar para Amox-Clavulanato em alta dose.</p></div>
+          </div>
+          <div style="display:flex;gap:14px;padding:14px 16px;align-items:flex-start">
+            <div style="flex:none;width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:500;font-size:16px">3</div>
+            <div><strong style="font-size:14px;color:var(--blue-ink)">Falha com Amox-Clav</strong><p style="font-size:13px;color:var(--ink-soft);margin-top:2px">Clindamicina + Cefixima ou Levofloxacino. Ceftriaxona 50 mg/kg IM se vômitos.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="sc" style="margin-bottom:4px">Alternativas por tipo de reação</div>
+        <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--rule); height: 266px">
+          <table class="tbl">
+            <thead><tr><th>Reação</th><th style="background:var(--blue)">Alternativa</th></tr></thead>
+            <tbody>
+              <tr><td>Não-Tipo 1 (rash tardio)</td><td>Cefdinir, Cefuroxima ou Cefpodoxima</td></tr>
+              <tr><td style="height: 80px">Tipo 1 — anafilaxia</td><td>Cefalosporinas com avaliação individual</td></tr>
+              <tr><td style="height: 108px">Tipo 1 grave (&lt;2a)</td><td>Clindamicina + Cefixima ou Levofloxacino</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box warn" style="padding:16px 20px">
+          <div class="ico" style="width:34px;height:34px;font-size:14px">✕</div>
+          <div class="txt" style="font-size:13px">Azitromicina e SMX-TMP <strong>NÃO são alternativas</strong> — resistência &gt;20%.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 3: terapia de suporte em linha horizontal -->
+    <div style="margin-top:20px">
+      <div class="sc" style="margin-bottom:12px">Terapia de suporte</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div class="tile" style="background:var(--green-soft);border:none;padding:18px 22px">
+          <span style="font-size:10px;font-weight:700;color:var(--green);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:10px">✓ Recomendado</span>
+          <ul class="bl green" style="gap:8px">
+            <li>Lavagem nasal com soro fisiológico</li>
+            <li>Corticoide intranasal (mometasona, fluticasona)</li>
+            <li>Paracetamol ou Ibuprofeno para dor e febre</li>
+          </ul>
+        </div>
+        <div class="tile" style="background:var(--pink-soft);border:none;padding:18px 22px">
+          <span style="font-size:10px;font-weight:700;color:var(--red);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:10px">✕ Não usar</span>
+          <ul class="bl red" style="gap:8px">
+            <li>Anti-histamínicos (espessam secreções)</li>
+            <li>Descongestionantes (sem eficácia comprovada)</li>
+            <li>ATB tópicos nasais (contraindicados)</li>
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>11–12 · Falha e situações especiais</span><b>15</b></div>
+</section>
+
+<!-- ═══ 16 · CAP 13 — RECORRÊNCIA ═══ -->
+<section class="page">
+  <div class="blob pink" style="width:280px;height:280px;right:-90px;top:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 13 · Recorrência e Cronicidade</span><span>Quebrando o ciclo</span></div>
+    <div class="ey"><span class="n">13</span>Recorrência</div>
+    <h2 class="t">Quando a frequência<br/><em>define</em> o manejo.</h2>
+    <div class="lede" style="font-size:19px;margin-top:12px">≥ 3 episódios em 6 meses ou ≥ 4 em 12 meses. O foco deve mudar: de tratar o episódio para identificar a causa subjacente.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:20px;align-items:flex-start;flex:1">
+      <div>
+        <div class="sc" style="margin-bottom:12px">Causas subjacentes a investigar</div>
+        <ul class="bl" style="gap:10px">
+          <li><strong>Rinite alérgica</strong> — a mais comum. Edema crônico da mucosa compromete drenagem sinusal.</li>
+          <li><strong>Hipertrofia de adenoide</strong> — reservatório bacteriano, especialmente em crianças ≤ 12 anos.</li>
+          <li><strong>Refluxo gastroesofágico</strong> — irritação crônica da mucosa posterior.</li>
+          <li><strong>Imunodeficiência humoral</strong> — dosagem de IgA sérica e subclasses de IgG.</li>
+          <li><strong>Fibrose cística</strong> — quando há polipose nasal associada.</li>
+          <li><strong>Discinesia ciliar primária</strong> — rinorreia desde o nascimento, bronquiectasias.</li>
+        </ul>
+        <div class="box warn" style="margin-top:24px">
+          <div class="ico">⚠</div>
+          <div class="txt"><strong>Polipose nasal em pediatria: investigar fibrose cística</strong> (teste do suor ou triagem genética) antes de qualquer outra conduta.</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="box warn">
+          <div class="ico">✕</div>
+          <div class="txt"><strong>Profilaxia antibiótica: NÃO recomendada.</strong> Sem benefício consistente em ECRs + risco significativo de selecionar resistência bacteriana.</div>
+        </div>
+        <div class="sc" style="margin-bottom:12px">Quando encaminhar ao ORL / infectologista</div>
+        <ul class="bl red" style="gap:12px">
+          <li>Qualquer caso com ≥ 3 episódios anuais.</li>
+          <li>Presença de pólipos nasais.</li>
+          <li>Suspeita de imunodeficiência.</li>
+          <li>Falha de 2 ou mais ciclos completos.</li>
+          <li>Sinusite que evolui para cronicidade (&gt; 90 dias).</li>
+        </ul>
+        <div style="border-radius:6px;overflow:hidden;aspect-ratio:4/3;margin-top:16px">
+          <img src="assets/crianca-nariz.jpg" alt="Criança com sintomas nasais" style="width: 100%; height: 170px; object-fit: cover; object-position: center center; display: block; border-width: 16px; border-style: solid; border-radius: 8px; border-color: rgba(27, 43, 61, 0)"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>13 · Recorrência</span><b>16</b></div>
+</section>
+
+<!-- ═══ 17 · COMPLICAÇÕES ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Parte VI · Complicações</span><span>Reconhecer antes que seja tarde</span></div>
+    <div class="ey">Complicações</div>
+    <h2 class="t">Raras, mas<br/><em>devastadoras</em> se perdidas.</h2>
+    <div class="lede" style="font-size:19px;margin-top:12px">Complicações orbitárias: 3,7–8,8% dos diagnósticos. Intracranianas: mais raras, alta mortalidade.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:20px;align-items:flex-start;flex:1">
+      <div>
+        <div class="sc" style="margin-bottom:12px">Complicações orbitárias — menores de 5 anos</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="tile" style="border-left:5px solid var(--yellow);padding:13px 18px">
+            <h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:5px">Celulite pré-septal</h4>
+            <p style="font-size:13px;color:var(--ink-soft)">Edema palpebral sem proptose. Menos grave — ATB IV + internação.</p>
+          </div>
+          <div class="tile" style="border-left:5px solid var(--pink);padding:13px 18px">
+            <h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:5px">Celulite orbitária</h4>
+            <p style="font-size:13px;color:var(--ink-soft)">Edema + eritema periorbitário + dor à movimentação. TC urgente + internação.</p>
+          </div>
+          <div class="tile" style="border-left:5px solid var(--red);padding:13px 18px">
+            <h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:5px">Abscesso subperiosteal</h4>
+            <p style="font-size:13px;color:var(--ink-soft)">Proptose + oftalmoplegia. TC urgente + internação + avaliação cirúrgica imediata.</p>
+          </div>
+        </div>
+        <div class="sc" style="margin-top:14px;margin-bottom:10px">Complicações intracranianas — adolescente ♂</div>
+        <div class="tile" style="border-left:5px solid var(--red);padding:13px 18px">
+          <h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:5px">Empiema subdural / Abscesso cerebral</h4>
+          <p style="font-size:13px;color:var(--ink-soft)">Cefaleia refratária, déficits neurológicos focais, crises convulsivas. TC urgente + neurocirurgia.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="tile" style="border-left:5px solid var(--red);padding:13px 18px;margin-bottom:14px">
+          <h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:5px">Tumor de Pott</h4>
+          <p style="font-size:13px;color:var(--ink-soft)">Osteomielite frontal + abscesso subperiosteal frontal. Edema frontal visível — internação imediata.</p>
+        </div>
+        <div style="background:#FCE9EA;border:2px solid var(--red);border-radius:12px;padding:16px 20px">
+          <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--red-deep);margin-bottom:10px">Ação imediata obrigatória</div>
+          <ul class="bl red" style="gap:7px">
+            <li><strong>Edema palpebral</strong> ou eritema periorbitário.</li>
+            <li><strong>Proptose</strong> do globo ocular.</li>
+            <li><strong>Dor à movimentação ocular</strong> ou oftalmoplegia.</li>
+            <li><strong>Cefaleia intensa e progressiva</strong> + fotofobia.</li>
+            <li><strong>Rigidez de nuca</strong> ou sinais meníngeos.</li>
+            <li><strong>Déficits neurológicos focais</strong> ou convulsões.</li>
+            <li><strong>Edema frontal</strong> — Tumor de Pott.</li>
+          </ul>
+          <div style="background:rgba(255,255,255,.65);border-radius:8px;padding:13px 15px;margin-top:16px">
+            <p style="font-size:13px;font-weight:700;color:var(--red-deep);line-height:1.45">→ TC com contraste imediata + internação + ATB IV amplo espectro.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Complicações</span><b>17</b></div>
+</section>
+
+<!-- ═══ 18 · REGRAS DE OURO ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Síntese Final</span><span>Regras de Ouro</span></div>
+    <div class="ey">Síntese</div>
+    <h2 class="t">Os cinco<br/><em>princípios</em> fundamentais.</h2>
+    <div class="lede">Guardar estes cinco princípios é guardar o essencial deste guia.</div>
+
+    <div style="display:flex;flex-direction:column;gap:16px;margin-top:30px;flex:1">
+      <div class="gold">
+        <div class="n">1</div>
+        <div><h5>Diagnóstico rigoroso é o primeiro ato terapêutico</h5>
+        <p>82% prescrevem ATB. Apenas 6–7% têm sinusite bacteriana real. Identifique o fenótipo antes de qualquer decisão.</p></div>
+      </div>
+      <div class="gold" style="background:var(--pink-soft);border-color:rgba(217,93,98,.2)">
+        <div class="n" style="color:var(--red-deep)">2</div>
+        <div><h5>Secreção purulenta isolada não é sinusite bacteriana</h5>
+        <p>Nos dias 3–6 de qualquer IVAS viral a secreção pode ser purulenta — fisiológico. O critério é temporal, nunca a cor.</p></div>
+      </div>
+      <div class="gold" style="background:var(--green-soft);border-color:rgba(47,143,90,.2)">
+        <div class="n" style="color:var(--green)">3</div>
+        <div><h5>Zero imagem de rotina — diagnóstico é 100% clínico</h5>
+        <p>Não solicite RX, TC ou swab no 1º episódio. TC com contraste: apenas se suspeita clínica de complicação.</p></div>
+      </div>
+      <div class="gold" style="background:var(--teal-soft);border-color:rgba(47,107,108,.2)">
+        <div class="n" style="color:#2F6B6C">4</div>
+        <div><h5>NNT=6, NNH=16 — a balança é real</h5>
+        <p>O ATB reduz sintomas em apenas 2 dias (7 vs. 9). Para Fenótipo 1 leve, espera vigilante é cientificamente defensável.</p></div>
+      </div>
+      <div class="gold" style="background:var(--sky-soft);border-color:rgba(82,133,183,.2)">
+        <div class="n" style="color:var(--blue-deep)">5</div>
+        <div><h5>Red flags não esperam — TC e internação imediatas</h5>
+        <p>Edema periorbitário, proptose, cefaleia intensa, sinais meníngeos ou déficits neurológicos são emergências. Não subestimar.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Regras de Ouro</span><b>18</b></div>
+</section>
+
+<!-- ═══ 19 · CHECKLIST ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Checklist de Consulta</span><span>Ferramenta à beira-leito</span></div>
+    <div class="ey">Ferramenta prática</div>
+    <h2 class="t">Para cada<br/><em>consulta</em>.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:32px;flex:1">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="background:#fff;border:1px solid var(--rule);border-radius:10px;padding:24px 26px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+            <div style="width:30px;height:30px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <div style="font-family:'Fraunces',serif;font-size:20px;color:var(--blue-ink);font-weight:500">Diagnóstico</div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Classifiquei o fenótipo (1, 2 ou 3)?</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Sintomas ≥ 10 dias sem melhora alguma? (F1)</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Febre ≥39°C + purulência por 3–4 dias? (F2)</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Piora após período de melhora? (F3)</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>NÃO pedi RX / TC de rotina?</li>
+          </ul>
+        </div>
+        <div style="background:#fff;border:1px solid var(--rule);border-radius:10px;padding:24px 26px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+            <div style="width:30px;height:30px;border-radius:8px;background:#2F6B6C;display:flex;align-items:center;justify-content:center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 3v6M9 6l3-3 3 3M4 14a8 8 0 0 0 16 0"/></svg>
+            </div>
+            <div style="font-family:'Fraunces',serif;font-size:20px;color:var(--blue-ink);font-weight:500">Prescrição</div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Amoxicilina 45 mg/kg/dia — F1 sem FR?</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Amox-Clav 80–90 mg/kg/dia — F1 com FR?</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Amox-Clav 90 mg/kg/dia 3× — F2 ou F3?</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Duração mínima de 10 dias?</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Lavagem nasal + corticoide intranasal?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 24px 26px; height: 268px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+            <div style="width:30px;height:30px;border-radius:8px;background:#D4A500;display:flex;align-items:center;justify-content:center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <div style="font-family:'Fraunces',serif;font-size:20px;color:var(--blue-ink);font-weight:500">Reavaliação 48–72h</div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Há ausência de qualquer melhora?</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Houve nova febre ou piora?</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Escalar ATB conforme algoritmo?</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Questionar o diagnóstico em falha repetida?</li>
+          </ul>
+        </div>
+        <div style="background: #FCE9EA; border: 1.5px solid var(--red); border-radius: 10px; padding: 24px 26px; height: 293px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+            <div style="width:30px;height:30px;border-radius:8px;background:var(--red);display:flex;align-items:center;justify-content:center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2l10 18H2z"/><path d="M12 9v5M12 17h.01"/></svg>
+            </div>
+            <div style="font-family:'Fraunces',serif;font-size:20px;color:var(--red-deep);font-weight:500">Red flags — emergência</div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--red-deep)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--red);margin-top:2px"></span>Edema / eritema periorbitário?</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--red-deep)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--red);margin-top:2px"></span>Proptose ou dor à movimentação ocular?</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--red-deep)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--red);margin-top:2px"></span>Cefaleia intensa, fotofobia, rigidez de nuca?</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--red-deep)"><span style="flex:none;width:17px;height:17px;border-radius:4px;border:1.5px solid var(--red);margin-top:2px"></span>Déficits neurológicos ou convulsões?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Checklist de consulta</span><b>19</b></div>
+</section>
+
+<!-- ═══ 20 · CONTRACAPA ═══ -->
+<section class="page back">
+  <svg style="position:absolute;right:-80px;top:-80px;width:380px;opacity:.16" viewBox="0 0 300 300" fill="none">
+    <circle cx="150" cy="150" r="140" stroke="#FDDB5C" stroke-width="1"/>
+    <circle cx="150" cy="150" r="100" stroke="#92D4D5" stroke-width="1"/>
+    <circle cx="150" cy="150" r="58" fill="#F7ADAF" opacity=".5"/>
+    <g transform="translate(94,68) scale(.75)" opacity=".55">
+      <path d="M68 0 C38 0 8 38 8 86 L8 152 C8 176 28 190 48 186 L48 152 L88 152 L88 186 C108 190 128 176 128 152 L128 86 C128 38 98 0 68 0Z" fill="white"/>
+      <line x1="68" y1="8" x2="68" y2="165" stroke="white" stroke-width="2.5"/>
+    </g>
+  </svg>
+  <div class="pi" style="justify-content:space-between">
+    <div>
+      <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--yellow);font-weight:700;margin-bottom:28px">Rinossinusite Pediátrica na Prática</div>
+      <div style="font-family:'Fraunces',serif;font-weight:300;font-size:52px;line-height:1.04;letter-spacing:-.015em;max-width:560px;color:#fff">
+        Do diagnóstico<br/>à <em style="color:var(--yellow);font-style:italic;font-weight:400">decisão clínica</em>.
+      </div>
+      <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:21px;line-height:1.5;color:rgba(255,255,255,.8);max-width:540px;margin-top:24px">Um guia que integra as melhores evidências de 2026 em um raciocínio clínico aplicável ao consultório.</p>
+    </div>
+    <div>
+      <div style="display:flex;gap:12px;margin-bottom:28px">
+        <span style="width:22px;height:22px;border-radius:50%;background:#5285B7"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#A5CAE0"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#FDDB5C"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#F7ADAF"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#92D4D5"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.15);padding-top:22px">
+        <div>
+          <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600">Autoria</div>
+          <div style="font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-top:4px">Dra. Ana Luísa Pacheco</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.6);margin-top:3px">Pediatra · Infectologista Pediátrica</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600">Edição</div>
+          <div style="font-family:'Fraunces',serif;font-size:19px;color:#fff;margin-top:4px">Rinossinusite · 2026</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.6);margin-top:3px">© 2026 · Todos os direitos reservados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
