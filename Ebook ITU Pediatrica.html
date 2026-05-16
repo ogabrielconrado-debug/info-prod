@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<title>ITU na Prática Pediátrica — Dra. Ana Luísa Pacheco</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --blue:#5285B7; --blue-deep:#3A6A99; --blue-ink:#1F3A5C;
+  --sky:#A5CAE0;  --sky-soft:#D6E6F1;
+  --yellow:#FDDB5C; --yellow-soft:#FEEFB7;
+  --pink:#F7ADAF;   --pink-soft:#FBD8D9;
+  --teal:#92D4D5;   --teal-soft:#D1EDEE;
+  --ink:#1B2B3D;    --ink-soft:#4A5A6E;
+  --paper:#FBF8F3;  --paper-warm:#F5EEE2;
+  --rule:#E6DFD1;
+  --red:#D95D62;    --red-deep:#8B3236;
+  --green:#2F8F5A;  --green-soft:#C8EDDA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#E9E4D8;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+body{padding:56px 20px 130px;display:flex;flex-direction:column;align-items:center;gap:56px}
+
+.page{
+  width:min(820px,100%); aspect-ratio:794/1123;
+  background:var(--paper);
+  box-shadow:0 32px 72px -20px rgba(31,58,92,.24), 0 8px 24px -8px rgba(31,58,92,.12);
+  position:relative; overflow:hidden; border-radius:4px;
+}
+.pi{position:absolute; inset:0; padding:72px 80px 88px; display:flex; flex-direction:column}
+.folio{position:absolute;left:0;right:0;bottom:30px;display:flex;justify-content:space-between;align-items:center;padding:0 80px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.folio b{color:var(--blue-deep)}
+
+.ph{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule);padding-bottom:16px;margin-bottom:40px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.ph .c{color:var(--blue-deep);font-weight:700}
+
+.ey{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--blue-deep);display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.ey::before{content:"";display:block;width:30px;height:1.5px;background:var(--blue-deep)}
+.ey .n{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:0}
+
+h2.t{font-family:'Fraunces',serif;font-weight:400;font-size:50px;line-height:.98;letter-spacing:-.02em;color:var(--blue-ink);font-variation-settings:"opsz" 144}
+h2.t em{font-style:italic;font-weight:300;color:var(--blue)}
+h3.st{font-family:'Fraunces',serif;font-weight:500;font-size:26px;color:var(--blue-ink);letter-spacing:-.01em;margin-bottom:14px;line-height:1.1}
+h3.st em{font-style:italic;color:var(--blue);font-weight:300}
+.lede{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:21px;line-height:1.45;color:var(--ink-soft);margin-top:16px}
+p.b{font-size:14px;line-height:1.72;color:var(--ink)}
+p.b+p.b{margin-top:14px}
+.rule{height:1px;background:var(--rule);margin:24px 0}
+.sc{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+
+.box{border-radius:8px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.box .ico{flex:none;width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700}
+.box .txt{font-size:13.5px;line-height:1.58;color:var(--blue-ink);font-weight:500}
+.box.blue{background:var(--sky-soft)}
+.box.warn{background:#FCE9EA}.box.warn .ico{background:var(--red)}.box.warn .txt{color:#6F262A}
+.box.tip{background:var(--yellow-soft)}.box.tip .ico{background:#D4A500;color:#fff}.box.tip .txt{color:#5F4400}
+.box.green{background:var(--green-soft)}.box.green .ico{background:var(--green);color:#fff}.box.green .txt{color:#1A5C38}
+.box.teal{background:var(--teal-soft)}.box.teal .ico{background:#2F6B6C}.box.teal .txt{color:#1e4949}
+
+.bl{display:flex;flex-direction:column;gap:10px}
+.bl li{list-style:none;display:flex;gap:12px;align-items:flex-start;font-size:13.5px;line-height:1.6;color:var(--ink)}
+.bl li::before{content:"";flex:none;margin-top:9px;width:7px;height:7px;border-radius:2px;background:var(--blue);transform:rotate(45deg)}
+.bl.red li::before{background:var(--red)}.bl.green li::before{background:var(--green)}.bl.yellow li::before{background:var(--yellow)}.bl.teal li::before{background:var(--teal)}
+
+.tile{background:#fff;border-radius:8px;padding:20px 22px;border:1px solid var(--rule);display:flex;flex-direction:column;gap:9px}
+.tile .lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.tile .big{font-family:'Fraunces',serif;font-weight:500;font-size:44px;line-height:1;color:var(--blue-ink);letter-spacing:-.02em}
+.tile .big em{font-style:italic;color:var(--blue);font-weight:400}
+.tile p{font-size:12.5px;line-height:1.55;color:var(--ink-soft)}
+.tile h4{font-family:'Fraunces',serif;font-weight:500;font-size:19px;color:var(--blue-ink)}
+.tile .iw{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--sky-soft);color:var(--blue-ink)}
+.tile .iw svg{width:22px;height:22px}
+.tile .iw.pink{background:var(--pink-soft);color:var(--red-deep)}
+.tile .iw.green{background:var(--green-soft);color:var(--green)}
+.tile .iw.yellow{background:var(--yellow-soft);color:#7A5A00}
+.tile .iw.teal{background:var(--teal-soft);color:#2F6B6C}
+
+.tbl{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;font-size:12.5px}
+.tbl th{background:var(--blue-ink);color:#fff;padding:10px 14px;text-align:left;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.tbl td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5;color:var(--ink)}
+.tbl tr:nth-child(even) td{background:rgba(82,133,183,.04)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td:first-child{font-weight:600;color:var(--blue-ink);background:var(--paper-warm)}
+
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--sky-soft);color:var(--blue-ink);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.chip.yellow{background:var(--yellow-soft);color:#7A5A00}
+.chip.red{background:var(--pink-soft);color:var(--red-deep)}
+.chip.green{background:var(--green-soft);color:#1A5C38}
+.chip.teal{background:var(--teal-soft);color:#2F6B6C}
+
+.qcard{background:var(--blue-ink);color:#fff;border-radius:10px;padding:28px 32px;position:relative;overflow:hidden}
+.qcard::before{content:"\201C";position:absolute;right:16px;top:-10px;font-size:150px;color:var(--yellow);opacity:.28;font-family:'Fraunces',serif;line-height:1}
+.qcard p{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:22px;line-height:1.35;max-width:530px}
+.qcard .att{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--yellow);font-weight:600;margin-top:14px}
+
+.photo-wrap{border-radius:8px;overflow:hidden;position:relative}
+.photo-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(31,58,92,.18))}
+.photo-wrap .stripe{position:absolute;left:-10px;top:24px;width:64px;height:8px;background:var(--yellow);z-index:2}
+.photo-bg{background-image:url('assets/dra-ana-luisa.jpg');background-size:cover;background-position:center top}
+
+.toc-row{display:grid;grid-template-columns:36px 34px 1fr auto;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.toc-row .n{font-family:'Fraunces',serif;font-size:19px;color:var(--blue);font-weight:500;font-style:italic}
+.toc-row .ic{width:32px;height:32px;border-radius:50%;background:var(--sky-soft);display:flex;align-items:center;justify-content:center;color:var(--blue-ink)}
+.toc-row .ic svg{width:15px;height:15px}
+.toc-row .ttl{font-family:'Fraunces',serif;font-size:18px;color:var(--blue-ink);font-weight:400}
+.toc-row .ttl .sub{display:block;font-family:'Inter',sans-serif;font-size:11.5px;color:var(--ink-soft);font-weight:400;margin-top:2px}
+.toc-row .pg{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft)}
+.toc-part{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);font-weight:700;padding:14px 0 4px;border-bottom:2px solid var(--blue);margin-bottom:2px}
+
+.gold{background:var(--yellow-soft);border:1px solid rgba(212,165,0,.2);border-radius:8px;padding:20px 22px;display:flex;gap:14px}
+.gold .n{font-family:'Fraunces',serif;font-size:40px;color:var(--blue-ink);font-weight:500;line-height:1;font-style:italic;flex:none;width:46px}
+.gold h5{font-family:'Fraunces',serif;font-weight:500;font-size:17px;color:var(--blue-ink);margin-bottom:5px}
+.gold p{font-size:12.5px;color:var(--ink-soft);line-height:1.55}
+
+.back{background:var(--blue-ink);color:#fff}
+.cover-graphic{position:absolute;right:-40px;top:50%;width:470px;height:470px;pointer-events:none;z-index:1;transform:translateY(-50%)}
+.blob{position:absolute;border-radius:50%;pointer-events:none;opacity:.22;background:var(--yellow)}
+.blob.sky{background:var(--sky);opacity:.34}
+.blob.pink{background:var(--pink);opacity:.28}
+.blob.teal{background:var(--teal);opacity:.3}
+
+.dropcap::first-letter{font-family:'Fraunces',serif;font-weight:400;font-style:italic;float:left;font-size:74px;line-height:.84;color:var(--blue);padding:6px 13px 0 0}
+
+/* mindmap */
+.mindmap{position:relative;width:100%;flex:1;min-height:520px;display:flex;align-items:center;justify-content:center;margin-top:18px}
+.mm-center{width:170px;height:170px;border-radius:50%;background:var(--blue-ink);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Fraunces',serif;font-size:18px;font-weight:500;padding:8px;line-height:1.15;box-shadow:0 8px 24px -8px rgba(31,58,92,.4);z-index:5}
+.mm-node{position:absolute;width:160px;border-radius:10px;padding:14px 16px;text-align:center;background:#fff;border:1.5px solid var(--rule);box-shadow:0 4px 12px -4px rgba(31,58,92,.15);z-index:5}
+.mm-node .lab{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+.mm-node .ttl{font-family:'Fraunces',serif;font-size:14px;color:var(--blue-ink);font-weight:500;line-height:1.2}
+.mm-line{position:absolute;height:2px;background:var(--rule);transform-origin:left center;z-index:1}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+
+@media print{
+  @page{size:A4 portrait;margin:0}
+  html,body{background:#fff!important;padding:0!important;margin:0!important;gap:0!important;display:block!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .page{box-shadow:none!important;border-radius:0!important;width:210mm!important;height:297mm!important;aspect-ratio:auto!important;margin:0!important;break-after:page;page-break-after:always;break-inside:avoid;overflow:hidden!important}
+  .page:last-child{break-after:auto;page-break-after:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ 01 · CAPA ═══ -->
+<section class="page" style="background:radial-gradient(120% 70% at 100% 0%,var(--sky-soft) 0%,transparent 55%),radial-gradient(90% 60% at 0% 100%,var(--yellow-soft) 0%,transparent 55%),var(--paper)">
+  <svg class="cover-graphic" viewBox="0 0 470 470" fill="none" aria-hidden="true">
+    <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A5CAE0"/><stop offset="1" stop-color="#5285B7"/></linearGradient></defs>
+    <circle cx="235" cy="235" r="200" fill="url(#g1)" opacity=".3"/>
+    <circle cx="235" cy="235" r="144" fill="#FDDB5C" opacity=".5"/>
+    <circle cx="235" cy="235" r="90" fill="#92D4D5" opacity=".88"/>
+    <!-- bladder + kidney icon -->
+    <g transform="translate(140,120)" fill="none" stroke="white" stroke-width="3" opacity=".9">
+      <path d="M30 30 C30 10 60 10 60 30 L60 80 C60 110 90 130 95 150 C100 165 95 185 75 195 C60 200 50 200 38 200 C20 200 0 180 5 158 C12 130 30 110 30 80 Z" fill="white" opacity=".88"/>
+      <ellipse cx="48" cy="100" rx="22" ry="32" fill="#5285B7" opacity=".7"/>
+      <path d="M120 70 C100 80 100 130 120 145 C145 150 165 130 165 110 C165 85 145 65 120 70 Z" fill="white" opacity=".82"/>
+      <path d="M138 80 C148 95 148 125 138 138" stroke="#5285B7" stroke-width="2.5" fill="none"/>
+    </g>
+  </svg>
+  <div class="pi" style="justify-content:space-between;z-index:2">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'Fraunces',serif;font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-ink)">
+        <span style="width:10px;height:10px;border-radius:50%;background:var(--blue);display:block"></span>Dra. Ana Luísa Pacheco · Infectologia Pediátrica
+      </div>
+      <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;writing-mode:vertical-rl;transform:rotate(180deg)">Edição 01 · 2026</div>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--blue-deep);display:inline-flex;align-items:center;gap:14px;margin-bottom:28px">
+        <span style="display:block;width:48px;height:1.5px;background:var(--blue-deep)"></span>Guia Prático · Pediatria
+      </div>
+      <div style="font-family:'Fraunces',serif;font-weight:400;font-size:64px;line-height:.96;letter-spacing:-.025em;color:var(--blue-ink);font-variation-settings:'opsz' 144">
+        ITU na<br/>Prática<br/><em style="font-style:italic;color:var(--blue);font-weight:300">Pediátrica</em>.
+      </div>
+      <div style="margin-top:24px;font-family:'Fraunces',serif;font-style:italic;font-size:21px;line-height:1.4;color:var(--ink-soft);max-width:520px;font-weight:300">Do raciocínio clínico à decisão segura — baseado nas melhores evidências de 2025–2026.</div>
+    </div>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;padding-top:24px;border-top:1px solid var(--rule)">
+      <div>
+        <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:5px">Autoria</div>
+        <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--blue-ink)">Dra. Ana Luísa Pacheco</div>
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-top:3px">Pediatra · Infectologista Pediátrica</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:5px">Baseado em</div>
+        <div style="font-family:'Fraunces',serif;font-size:14px;font-weight:500;color:var(--blue-ink)">UpToDate 2026 · ESPID 2025 · NICE · EAU/ESPU</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 02 · SOBRE A AUTORA ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Sobre a Autora</span><span>ITU na Prática Pediátrica</span></div>
+    <div style="display:grid;grid-template-columns:290px 1fr;gap:52px;align-items:flex-start;flex:1">
+      <div><div class="photo-wrap photo-bg" style="aspect-ratio:3/4"><div class="stripe"></div></div></div>
+      <div>
+        <div class="ey">Autoria</div>
+        <h2 class="t" style="font-size:46px">Dra. Ana Luísa <em>Pacheco</em></h2>
+        <div class="lede">Pediatra e infectologista pediátrica — formadora de clínicos que decidem com mais rigor e segurança.</div>
+        <div class="rule"></div>
+        <p class="b">Médica pediatra e infectologista pediátrica com atuação consolidada na assistência especializada, ensino médico e produção científica. Dedicou-se à integração entre prática baseada em evidências, raciocínio clínico estruturado e ensino aplicado à rotina assistencial.</p>
+        <p class="b">Este guia integra as principais fontes contemporâneas sobre ITU pediátrica: UpToDate (revisado em 2026), o guideline ESPID 2025 — primeiro focado em ITU complicada em crianças — e referências da EAU/ESPU e NICE.</p>
+        <div class="box tip" style="margin-top:24px">
+          <div class="ico">"</div>
+          <div class="txt">"O objetivo não é substituir a consulta às fontes primárias — é ajudar você a chegar lá mais rápido, com o raciocínio clínico já organizado."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Sobre a Autora</span><b>02</b></div>
+</section>
+
+<!-- ═══ 03 · PREFÁCIO ═══ -->
+<section class="page">
+  <div class="blob sky" style="width:320px;height:320px;right:-110px;top:-110px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Prefácio</span><span>Uma bússola para a prática</span></div>
+    <div class="ey">Prefácio</div>
+    <h2 class="t">Uma <em>bússola</em><br/>para a prática.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:34px;align-items:flex-start;flex:1">
+      <div>
+        <p class="b dropcap">A infecção do trato urinário (ITU) é um dos problemas mais frequentes na pediatria. Toda semana você vai se deparar com uma criança febril, uma urocultura positiva, um lactente irritado, uma família ansiosa — e precisar decidir: tratar agora ou esperar? Internar ou enviar para casa? Pedir ultrassom ou não?</p>
+        <p class="b">Este guia nasceu de uma constatação simples: existe muito material bom sobre ITU pediátrica, mas disperso entre artigos, guidelines e livros — e raramente chega organizado, em português, de forma que o médico use no dia a dia.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="qcard">
+          <p>O foco é no raciocínio: por que esta conduta, neste paciente, agora.</p>
+          <div class="att">— Princípio central deste guia</div>
+        </div>
+        <div class="box blue">
+          <div class="ico">★</div>
+          <div class="txt">Síntese das fontes mais atuais: <strong>UpToDate 2026</strong>, <strong>ESPID 2025</strong> (primeiro guideline exclusivo de cITU em crianças), <strong>NICE</strong> e <strong>EAU/ESPU</strong>.</div>
+        </div>
+        <div class="box green">
+          <div class="ico">✓</div>
+          <div class="txt">Boxes de alerta, checklists, tabelas e um capítulo dedicado aos <strong>erros mais comuns</strong> — para que você os reconheça e evite antes de cometê-los.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Prefácio</span><b>03</b></div>
+</section>
+
+<!-- ═══ 04 · SUMÁRIO I ═══ -->
+<section class="page">
+  <div class="blob sky" style="width:280px;height:280px;right:-90px;top:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Sumário</span><span>7 partes · 20 capítulos</span></div>
+    <div class="ey">Índice</div>
+    <h2 class="t" style="font-size:46px">Do raciocínio<br/>à <em>decisão</em>.</h2>
+
+    <div style="margin-top:30px;flex:1">
+      <div class="toc-part">Parte I — Fundamentos</div>
+      <div class="toc-row"><span class="n">01</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg></span><span class="ttl">Por que a ITU pediátrica é diferente<span class="sub">Epidemiologia, microbiologia, "Tempo = Tecido"</span></span><span class="pg">p.06</span></div>
+      <div class="toc-row"><span class="n">02</span><span class="ic" style="background:var(--teal-soft);color:#2F6B6C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-7-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-7 11-7 11z"/></svg></span><span class="ttl">Fatores de risco<span class="sub">BBD, circuncisão, anatomia e genética</span></span><span class="pg">p.07</span></div>
+
+      <div class="toc-part" style="margin-top:14px">Parte II — Diagnóstico</div>
+      <div class="toc-row"><span class="n">03</span><span class="ic" style="background:var(--yellow-soft);color:#7A5A00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="ttl">A idade como bússola clínica<span class="sub">&lt; 2 anos versus &gt; 2 anos</span></span><span class="pg">p.08</span></div>
+      <div class="toc-row"><span class="n">04</span><span class="ic" style="background:var(--pink-soft);color:var(--red-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6h12v10H6z"/><path d="M9 16v4h6v-4"/></svg></span><span class="ttl">Coleta de urina<span class="sub">Técnica certa, resultado confiável</span></span><span class="pg">p.09</span></div>
+      <div class="toc-row"><span class="n">05</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg></span><span class="ttl">Interpretando EAS e urocultura<span class="sub">Armadilhas e o princípio da bacteriúria</span></span><span class="pg">p.10</span></div>
+
+      <div class="toc-part" style="margin-top:14px">Parte III — Tratamento Agudo</div>
+      <div class="toc-row"><span class="n">06–07</span><span class="ic" style="background:var(--green-soft);color:var(--green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/></svg></span><span class="ttl">Tratar agora? Internar ou ambulatório?<span class="sub">Critérios de decisão estratificada</span></span><span class="pg">p.11</span></div>
+      <div class="toc-row"><span class="n">08–09</span><span class="ic" style="background:var(--teal-soft);color:#2F6B6C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v6M9 6l3-3 3 3M4 14a8 8 0 0 0 16 0"/></svg></span><span class="ttl">Antibioticoterapia empírica<span class="sub">Arsenal, doses, duração e step-down</span></span><span class="pg">p.12</span></div>
+    </div>
+  </div>
+  <div class="folio"><span>Sumário</span><b>04</b></div>
+</section>
+
+<!-- ═══ 05 · SUMÁRIO II ═══ -->
+<section class="page">
+  <div class="blob teal" style="width:280px;height:280px;left:-90px;bottom:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Sumário</span><span>Partes IV · V · VI · VII</span></div>
+    <div style="margin-top:8px;flex:1">
+      <div class="toc-part">Parte IV — ITU Complicada (cITU)</div>
+      <div class="toc-row"><span class="n">10–11</span><span class="ic" style="background:var(--pink-soft);color:var(--red-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l10 18H2z"/><path d="M12 9v5M12 17h.01"/></svg></span><span class="ttl">O que torna uma ITU complicada<span class="sub">Os 5 subgrupos da cITU — ESPID 2025</span></span><span class="pg">p.14</span></div>
+      <div class="toc-row"><span class="n">12–13</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2h6v4H9zM6 6h12v16H6z"/></svg></span><span class="ttl">Investigação e tratamento da cITU<span class="sub">Vias, escolha empírica e patógenos especiais</span></span><span class="pg">p.15</span></div>
+
+      <div class="toc-part" style="margin-top:14px">Parte V — Após a Infecção Aguda</div>
+      <div class="toc-row"><span class="n">14</span><span class="ic" style="background:var(--teal-soft);color:#2F6B6C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg></span><span class="ttl">Protocolo de imagem<span class="sub">USG, UCM, DMSA — o que, quando e em quem</span></span><span class="pg">p.16</span></div>
+      <div class="toc-row"><span class="n">15–16</span><span class="ic" style="background:var(--yellow-soft);color:#7A5A00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-7-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-7 11-7 11z"/></svg></span><span class="ttl">Profilaxia e alternativas<span class="sub">PAC seletiva · Cranberry · Metenamina · BBD</span></span><span class="pg">p.17</span></div>
+
+      <div class="toc-part" style="margin-top:14px">Parte VI — Populações Especiais</div>
+      <div class="toc-row"><span class="n">17–18</span><span class="ic" style="background:var(--pink-soft);color:var(--red-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg></span><span class="ttl">Neonato e adolescente<span class="sub">Quando o padrão muda</span></span><span class="pg">p.18</span></div>
+
+      <div class="toc-part" style="margin-top:14px">Parte VII — Síntese</div>
+      <div class="toc-row"><span class="n">19</span><span class="ic" style="background:var(--green-soft);color:var(--green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l4 4L19 6"/></svg></span><span class="ttl">Checklists e protocolos<span class="sub">Ferramenta à beira-leito</span></span><span class="pg">p.19</span></div>
+      <div class="toc-row"><span class="n">20</span><span class="ic" style="background:var(--pink-soft);color:var(--red-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l10 18H2z"/><path d="M12 9v5M12 17h.01"/></svg></span><span class="ttl">Os 10 erros mais comuns<span class="sub">O que a evidência diz que fazemos errado</span></span><span class="pg">p.20</span></div>
+    </div>
+  </div>
+  <div class="folio"><span>Sumário</span><b>05</b></div>
+</section>
+
+<!-- ═══ 06 · CAP 1 — POR QUE É DIFERENTE ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 01 · Fundamentos</span><span>Por que ITU pediátrica é diferente</span></div>
+    <div class="ey"><span class="n">1</span>Epidemiologia &amp; patogênese</div>
+    <h2 class="t">Tempo é <em>tecido</em>.</h2>
+    <div class="lede">Atraso ≥ 48h no início da terapia empírica está associado a ~47% mais risco de novas cicatrizes renais.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:32px;align-items:flex-start;flex:1">
+      <div>
+        <p class="b">A prevalência acumulada até os 7 anos é de <strong>1–2% nos meninos</strong> e <strong>~7% nas meninas</strong>. Em crianças febris com menos de 2 anos no pronto-socorro, a prevalência de ITU é de aproximadamente 7%.</p>
+        <div class="rule"></div>
+        <div class="sc" style="margin-bottom:12px">Microbiologia esperada</div>
+        <ul class="bl">
+          <li><strong>E. coli</strong> — ~80% dos casos.</li>
+          <li><strong>Outros gram-negativos:</strong> Klebsiella, Proteus, Enterobacter.</li>
+          <li><strong>S. saprophyticus</strong> — adolescentes femininas sexualmente ativas.</li>
+        </ul>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div class="g2">
+          <div class="tile"><div class="iw pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/></svg></div><div class="lbl">Meninas</div><div class="big">~<em>7</em>%</div><p>Até os 7 anos terão ao menos um episódio de ITU.</p></div>
+          <div class="tile"><div class="iw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/></svg></div><div class="lbl">Atraso ≥ 48h</div><div class="big">+<em>47</em>%</div><p>Risco extra de cicatriz renal permanente.</p></div>
+        </div>
+        <div class="box warn">
+          <div class="ico">⚠</div>
+          <div class="txt"><strong>Gatilhos para iniciar empírico imediato:</strong> febre ≥39°C, aparência toxêmica, dor lombar, anomalia urológica conhecida ou lactente &lt; 2 meses.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>01 · Fundamentos</span><b>06</b></div>
+</section>
+
+<!-- ═══ 07 · CAP 2 — FATORES DE RISCO ═══ -->
+<section class="page">
+  <div class="blob pink" style="width:280px;height:280px;right:-90px;top:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 02 · Fatores de Risco</span><span>Quem tem mais chance de ter ITU</span></div>
+    <div class="ey"><span class="n">2</span>Fatores de risco</div>
+    <h2 class="t">A <em>BBD</em> é o fator mais subestimado.</h2>
+    <div class="lede">Disfunção intestinal e vesical está presente em até 80% das crianças com ITU recorrente.</div>
+
+    <div style="display:flex;flex-direction:column;gap:18px;margin-top:30px;flex:1">
+      <div class="tile" style="flex-direction:row;gap:22px;align-items:flex-start;padding:22px 26px;border-left:5px solid var(--red)">
+        <div style="flex:none;width:130px"><span class="chip red">Modificável</span><div style="font-family:'Fraunces',serif;font-size:15px;color:var(--ink-soft);margin-top:8px">BBD</div></div>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:19px;color:var(--blue-ink);margin-bottom:6px">Disfunção Intestinal e Vesical</h4><p class="b" style="font-size:13.5px">40% das crianças com primeiro episódio já têm BBD; sobe a <strong>80% nas recorrentes</strong>. HR 2,07 para recorrência. Tratá-la muda o prognóstico mais do que iniciar profilaxia.</p></div>
+      </div>
+      <div class="tile" style="flex-direction:row;gap:22px;align-items:flex-start;padding:22px 26px;border-left:5px solid var(--yellow)">
+        <div style="flex:none;width:130px"><span class="chip yellow">Anatômico</span><div style="font-family:'Fraunces',serif;font-size:15px;color:var(--ink-soft);margin-top:8px">RVU</div></div>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:19px;color:var(--blue-ink);margin-bottom:6px">Refluxo Vesicoureteral</h4><p class="b" style="font-size:13.5px">Anomalia urológica mais comum. Graus I–II resolvem espontaneamente; graus III–V aumentam risco de ITU febril recorrente e cicatriz renal.</p></div>
+      </div>
+      <div class="tile" style="flex-direction:row;gap:22px;align-items:flex-start;padding:22px 26px;border-left:5px solid var(--blue)">
+        <div style="flex:none;width:130px"><span class="chip">Demográfico</span><div style="font-family:'Fraunces',serif;font-size:15px;color:var(--ink-soft);margin-top:8px">Idade · sexo</div></div>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:19px;color:var(--blue-ink);margin-bottom:6px">Idade, sexo e circuncisão</h4><p class="b" style="font-size:13.5px">Maior em meninos no 1º ano; em meninas a partir dos 3–6m. Lactentes não circuncidados têm risco 4–8× maior — não circuncisão universal: NNT ~111.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>02 · Fatores de risco</span><b>07</b></div>
+</section>
+
+<!-- ═══ 08 · CAP 3 — A IDADE COMO BÚSSOLA ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 03 · Bússola Clínica</span><span>A idade divide as águas</span></div>
+    <div class="ey"><span class="n">3</span>Bússola clínica</div>
+    <h2 class="t">A idade <em>divide</em> as águas.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;border-radius:10px;overflow:hidden;border:1px solid var(--rule);margin-top:32px">
+      <div style="padding:24px 18px;background:var(--pink-soft)">
+        <div class="sc" style="color:var(--red-deep);margin-bottom:10px">&lt; 2 meses</div>
+        <div style="font-family:'Fraunces',serif;font-size:24px;color:var(--blue-ink);font-weight:500;line-height:1.1;margin-bottom:10px">Sempre cITU</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--ink)">IV obrigatório. Investigar bacteremia e meningite associada.</p>
+      </div>
+      <div style="padding:24px 18px;background:var(--yellow-soft);border-left:1px solid var(--rule)">
+        <div class="sc" style="color:#7A5A00;margin-bottom:10px">1m – 2 anos</div>
+        <div style="font-family:'Fraunces',serif;font-size:24px;color:var(--blue-ink);font-weight:500;line-height:1.1;margin-bottom:10px">Febre = risco</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--ink)">Pielonefrite presumida. Coleta criteriosa. Empírico se suspeita forte.</p>
+      </div>
+      <div style="padding:24px 18px;background:var(--sky-soft);border-left:1px solid var(--rule)">
+        <div class="sc" style="color:var(--blue-deep);margin-bottom:10px">&gt; 2 anos febril</div>
+        <div style="font-family:'Fraunces',serif;font-size:24px;color:var(--blue-ink);font-weight:500;line-height:1.1;margin-bottom:10px">Avaliar foco</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--ink)">Distinguir cistite vs. pielonefrite. Tratar conforme localização.</p>
+      </div>
+      <div style="padding:24px 18px;background:var(--teal-soft);border-left:1px solid var(--rule)">
+        <div class="sc" style="color:#2F6B6C;margin-bottom:10px">&gt; 2 anos afebril</div>
+        <div style="font-family:'Fraunces',serif;font-size:24px;color:var(--blue-ink);font-weight:500;line-height:1.1;margin-bottom:10px">Cistite simples</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--ink)">Pode aguardar cultura. Curso curto de 3–5 dias.</p>
+      </div>
+    </div>
+
+    <div class="rule" style="margin:30px 0 18px"></div>
+
+    <div class="sc" style="margin-bottom:14px">Apresentação clínica por faixa etária</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+      <div>
+        <h4 style="font-family:'Fraunces',serif;font-size:18px;color:var(--blue-ink);margin-bottom:10px">No lactente</h4>
+        <p class="b" style="font-size:13.5px">Raramente sintomas urinários. <strong>Febre sem foco</strong> é a queixa mais comum. Alertas: irritabilidade, recusa alimentar, vômitos, icterícia, falha de crescimento, letargia.</p>
+      </div>
+      <div>
+        <h4 style="font-family:'Fraunces',serif;font-size:18px;color:var(--blue-ink);margin-bottom:10px">Na criança maior</h4>
+        <p class="b" style="font-size:13.5px">Sintomas <strong>localizáveis</strong>: disúria, polaciúria, urgência, hematúria. Se trato superior: febre alta, calafrios, dor lombar, prostração.</p>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>03 · Bússola clínica</span><b>08</b></div>
+</section>
+
+<!-- ═══ 09 · CAP 4 — COLETA DE URINA ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 04 · Coleta de Urina</span><span>Técnica certa, resultado confiável</span></div>
+    <div class="ey"><span class="n">4</span>Coleta de urina</div>
+    <h2 class="t">A amostra define<br/>o <em>diagnóstico</em>.</h2>
+    <div class="lede">Saco coletor positivo tem até 88% de falsos-positivos. Usar apenas como triagem negativa.</div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;margin-top:30px;flex:1">
+      <div class="tile" style="flex-direction:row;gap:20px;align-items:flex-start;padding:18px 22px;border-left:5px solid var(--green)">
+        <span class="chip green" style="flex:none">Padrão-ouro</span>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:4px">Punção suprapúbica</h4><p style="font-size:13px;color:var(--ink-soft)">Diagnóstico definitivo — sem contaminação. Quando há dificuldade técnica para cateterismo.</p></div>
+      </div>
+      <div class="tile" style="flex-direction:row;gap:20px;align-items:flex-start;padding:18px 22px;border-left:5px solid var(--blue)">
+        <span class="chip" style="flex:none">Preferencial</span>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:4px">Cateterismo uretral</h4><p style="font-size:13px;color:var(--ink-soft)">Indicado para a maioria dos lactentes não-continentes com indicação de urocultura.</p></div>
+      </div>
+      <div class="tile" style="flex-direction:row;gap:20px;align-items:flex-start;padding:18px 22px;border-left:5px solid var(--teal)">
+        <span class="chip teal" style="flex:none">Não-invasivo</span>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:4px">Jato médio limpo</h4><p style="font-size:13px;color:var(--ink-soft)">Espontâneo em criança continente — após higiene perineal. Inadequado em lactentes &lt; 2 meses (38% contaminação).</p></div>
+      </div>
+      <div class="tile" style="flex-direction:row;gap:20px;align-items:flex-start;padding:18px 22px;border-left:5px solid var(--red)">
+        <span class="chip red" style="flex:none">Só triagem</span>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:4px">Saco coletor perineal</h4><p style="font-size:13px;color:var(--ink-soft)">Negativo descarta — positivo NÃO confirma. Até 88% de falsos-positivos.</p></div>
+      </div>
+    </div>
+
+    <div class="box warn" style="margin-top:22px">
+      <div class="ico">!</div>
+      <div class="txt">Em <strong>lactentes &lt; 2 meses</strong>, o cateterismo uretral ou a punção suprapúbica são <strong>obrigatórios</strong>. Processar em ≤ 1h ou refrigerar a 4°C.</div>
+    </div>
+  </div>
+  <div class="folio"><span>04 · Coleta de urina</span><b>09</b></div>
+</section>
+
+<!-- ═══ 10 · CAP 5 — INTERPRETAÇÃO ═══ -->
+<section class="page">
+  <div class="blob" style="width:260px;height:260px;left:-80px;bottom:-80px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 05 · EAS e Urocultura</span><span>Armadilhas clínicas</span></div>
+    <div class="ey"><span class="n">5</span>Interpretação</div>
+    <h2 class="t">Urocultura positiva<br/>≠ <em>ITU</em>.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:30px;align-items:flex-start;flex:1">
+      <div>
+        <div class="sc" style="margin-bottom:14px">Critérios bacteriológicos (AAP)</div>
+        <div style="border:1px solid var(--rule);border-radius:8px;overflow:hidden">
+          <table class="tbl">
+            <thead><tr><th>Amostra</th><th style="background:var(--blue)">Limiar de ITU</th></tr></thead>
+            <tbody>
+              <tr><td>Cateter ou jato médio</td><td>≥ 50.000 UFC/mL</td></tr>
+              <tr><td>Punção suprapúbica</td><td>Qualquer crescimento</td></tr>
+              <tr><td>Lactente &lt; 90d (cateter)</td><td>1.000–10.000 UFC/mL pode ser relevante</td></tr>
+              <tr><td>≥ 2 organismos</td><td>Contaminação na maioria</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="b" style="margin-top:20px;font-size:13.5px"><strong>Limites do dipstick:</strong> falsos-negativos em &lt; 3 meses (diluição), Enterococcus, Pseudomonas e neutropênicos.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div class="box warn">
+          <div class="ico">!</div>
+          <div class="txt"><strong>Princípio fundamental:</strong> bacteriúria assintomática <strong>não</strong> é ITU e <strong>não</strong> deve ser tratada — mesmo com anomalia urológica. Tratá-la apenas seleciona resistência.</div>
+        </div>
+        <div class="box blue">
+          <div class="ico">↻</div>
+          <div class="txt"><strong>Reavaliar em 48h é obrigatório:</strong> confirmar resposta, ajustar antibiótico (de-escalação), reconsiderar diagnóstico se cultura negativa.</div>
+        </div>
+        <div class="box tip">
+          <div class="ico">i</div>
+          <div class="txt"><strong>Piúria:</strong> ≥ 5 leucócitos/CGA. Sensibilidade limitada — resultado negativo não exclui ITU em alta suspeita clínica.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>05 · EAS e urocultura</span><b>10</b></div>
+</section>
+
+<!-- ═══ 11 · CAP 6+7 — TRATAR + INTERNAR ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulos 06–07 · Decisão Terapêutica</span><span>Tratar agora? Internar?</span></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;flex:1">
+      <div>
+        <div class="ey"><span class="n">6</span>Quando tratar empírico</div>
+        <h3 class="st">Começar <em>agora</em>.</h3>
+        <p class="b" style="font-size:13.5px;margin-bottom:14px">Iniciar imediatamente após coleta para cultura quando há suspeita forte e fatores de risco.</p>
+        <ul class="bl red" style="gap:9px">
+          <li>Febre ≥ 39°C ou &gt; 48 horas de evolução</li>
+          <li>Aparência toxêmica ou comprometida</li>
+          <li>Dor no ângulo costovertebral</li>
+          <li>Anomalia urológica conhecida (RVU IV–V)</li>
+          <li>Imunodeficiência conhecida</li>
+          <li>Lactente &lt; 2 meses — sempre</li>
+        </ul>
+        <div class="box green" style="margin-top:18px">
+          <div class="ico">⏱</div>
+          <div class="txt"><strong>Pode aguardar cultura:</strong> &gt; 2 anos, afebril, cistite sem fatores de risco e família com bom seguimento.</div>
+        </div>
+      </div>
+      <div>
+        <div class="ey"><span class="n">7</span>Internar ou ambulatório</div>
+        <h3 class="st">Onde <em>tratar</em>?</h3>
+        <p class="b" style="font-size:13.5px;margin-bottom:14px">A maioria pode ser manejada ambulatorialmente — IV não é equivalente a "melhor".</p>
+        <div class="sc" style="margin-bottom:10px">Critérios de internação / IV</div>
+        <ul class="bl" style="gap:9px">
+          <li>Urosepse: taquicardia afebril, hipotensão, TEC &gt; 2s</li>
+          <li>Lactente &lt; 2 meses</li>
+          <li>Imunocomprometido febril</li>
+          <li>Vômitos persistentes / intolerância oral</li>
+          <li>RVU IV–V ou obstrução grave</li>
+          <li>Nefrônia lobar / abscesso renal</li>
+        </ul>
+        <div class="box tip" style="margin-top:18px">
+          <div class="ico">✓</div>
+          <div class="txt">Para pielonefrite sem critérios de gravidade, <strong>terapia oral é tão eficaz quanto IV</strong> — ECRs e meta-análises confirmam.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>06–07 · Decisão terapêutica</span><b>11</b></div>
+</section>
+
+<!-- ═══ 12 · CAP 8+9 — ANTIBIÓTICOS ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulos 08–09 · Antibioticoterapia</span><span>Arsenal e duração</span></div>
+    <div class="ey"><span class="n">8</span>Antibiótico empírico</div>
+    <h2 class="t">A regra dos <em>15%</em>.</h2>
+    <div class="lede">Se a resistência local de E. coli ao antibiótico de escolha é ≥ 15%, não o use como 1ª linha empírica.</div>
+
+    <div style="margin-top:30px;border-radius:10px;overflow:hidden;border:1px solid var(--rule)">
+      <table class="tbl" style="width:100%;font-size:12px">
+        <thead><tr>
+          <th style="width:28%">Cenário</th>
+          <th style="background:var(--blue);width:22%">Antibiótico</th>
+          <th style="background:#2F6B6C;width:28%">Dose</th>
+          <th style="background:var(--red-deep);width:12%">Via</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Cistite &gt; 2 anos (1ª linha)</td><td>Cefixima</td><td>8 mg/kg/dia</td><td>Oral</td></tr>
+          <tr><td>Cistite adolescente feminina</td><td>Nitrofurantoína</td><td>5 mg/kg/dia · 4 doses</td><td>Oral</td></tr>
+          <tr><td>ITU febril &lt; 2 anos · ambulatorial</td><td>Cefalexina</td><td>75 mg/kg/dia · 3 doses</td><td>Oral</td></tr>
+          <tr><td>ITU febril &lt; 2 anos · internação</td><td>Cefazolina</td><td>50 mg/kg/dia · 3 doses</td><td>IV</td></tr>
+          <tr><td>Neonato (&lt; 2 meses)</td><td>Ampicilina + Gentamicina</td><td>Amp 100 + Genta 4–7 mg/kg</td><td>IV</td></tr>
+          <tr><td>Sepse urinária</td><td>Ceftriaxona</td><td>50–100 mg/kg/dia</td><td>IV</td></tr>
+          <tr><td>cITU com risco de ESBL</td><td>Amicacina</td><td>15–20 mg/kg/dia</td><td>IV</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px">
+      <div class="box warn">
+        <div class="ico">✕</div>
+        <div class="txt"><strong>Nitrofurantoína NÃO em pielonefrite:</strong> concentra-se na urina, mas não no parênquima renal. Contraindicada também em &lt; 2 meses e IR.</div>
+      </div>
+      <div class="box tip">
+        <div class="ico">⏱</div>
+        <div class="txt"><strong>Duração:</strong> cistite afebril 3–5 dias · pielonefrite &lt; 2 anos 10 dias · sepse / RVU IV–V 10–14 dias · nefrônia/abscesso 14–21 dias.</div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>08–09 · Antibioticoterapia</span><b>12</b></div>
+</section>
+
+<!-- ═══ 13 · ABERTURA PARTE IV — MAPA MENTAL cITU ═══ -->
+<section class="page">
+  <div class="blob teal" style="width:300px;height:300px;right:-100px;top:-100px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Parte IV · ITU Complicada (cITU)</span><span>Mapa mental — ESPID 2025</span></div>
+    <div class="ey">Mapa Mental</div>
+    <h2 class="t">Os <em>5 subgrupos</em><br/>da cITU.</h2>
+    <div class="lede" style="max-width:540px">O guideline ESPID 2025 organiza a ITU complicada em cinco subgrupos clínicos — cada um com seu perfil microbiológico e manejo.</div>
+
+    <div class="mindmap" style="margin-top:24px">
+      <div class="mm-center">cITU<br/>ESPID 2025</div>
+
+      <!-- 5 nodes around -->
+      <div class="mm-node" style="left:2%;top:8%;border-color:var(--red)">
+        <div class="lab" style="color:var(--red-deep)">Subgrupo 1</div>
+        <div class="ttl">Anomalia urológica</div>
+      </div>
+      <div class="mm-node" style="right:2%;top:8%;border-color:var(--yellow)">
+        <div class="lab" style="color:#7A5A00">Subgrupo 2</div>
+        <div class="ttl">ITU recorrente múltipla</div>
+      </div>
+      <div class="mm-node" style="left:0%;bottom:8%;border-color:var(--pink)">
+        <div class="lab" style="color:var(--red-deep)">Subgrupo 3</div>
+        <div class="ttl">Sepse / nefrônia / abscesso</div>
+      </div>
+      <div class="mm-node" style="right:0%;bottom:8%;border-color:var(--teal)">
+        <div class="lab" style="color:#2F6B6C">Subgrupo 4</div>
+        <div class="ttl">Condição subjacente não urológica</div>
+      </div>
+      <div class="mm-node" style="left:50%;bottom:-2%;transform:translateX(-50%);border-color:var(--blue)">
+        <div class="lab" style="color:var(--blue-deep)">Subgrupo 5</div>
+        <div class="ttl">Neonato &lt; 2 meses</div>
+      </div>
+
+      <!-- connecting lines (radial) -->
+      <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0" viewBox="0 0 100 70" preserveAspectRatio="none">
+        <line x1="50" y1="35" x2="15" y2="14" stroke="#E6DFD1" stroke-width="0.4"/>
+        <line x1="50" y1="35" x2="85" y2="14" stroke="#E6DFD1" stroke-width="0.4"/>
+        <line x1="50" y1="35" x2="12" y2="58" stroke="#E6DFD1" stroke-width="0.4"/>
+        <line x1="50" y1="35" x2="88" y2="58" stroke="#E6DFD1" stroke-width="0.4"/>
+        <line x1="50" y1="35" x2="50" y2="68" stroke="#E6DFD1" stroke-width="0.4"/>
+      </svg>
+    </div>
+
+    <div class="box blue" style="margin-top:24px">
+      <div class="ico">i</div>
+      <div class="txt">Uma criança pode pertencer a <strong>mais de um subgrupo simultaneamente</strong> — e quanto mais fatores presentes, mais agressivo deve ser o manejo inicial.</div>
+    </div>
+  </div>
+  <div class="folio"><span>cITU · 5 subgrupos</span><b>13</b></div>
+</section>
+
+<!-- ═══ 14 · CAP 10+11 — DEFINIÇÃO + 5 SUBGRUPOS ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulos 10–11 · Definindo a cITU</span><span>Os 5 subgrupos ESPID</span></div>
+    <div class="ey" style="white-space:nowrap"><span class="n" style="width:auto;min-width:42px;padding:0 8px;border-radius:14px">10–11</span>Subgrupos da cITU</div>
+    <h2 class="t" style="font-size:42px">Cinco perfis, <em>cinco</em> abordagens.</h2>
+
+    <div style="display:flex;flex-direction:column;gap:14px;margin-top:28px;flex:1">
+      <div class="tile" style="flex-direction:row;gap:22px;align-items:flex-start;padding:18px 22px;border-left:5px solid var(--red)">
+        <span class="chip red" style="flex:none">01</span>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:4px">Anomalia urológica</h4><p style="font-size:13px;color:var(--ink-soft);line-height:1.55">RVU III–V, obstrução, bexiga neurogênica ou pós-instrumentação. Risco de patógenos incomuns: Pseudomonas, Enterococcus, S. aureus.</p></div>
+      </div>
+      <div class="tile" style="flex-direction:row;gap:22px;align-items:flex-start;padding:18px 22px;border-left:5px solid var(--yellow)">
+        <span class="chip yellow" style="flex:none">02</span>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:4px">ITU recorrente múltipla</h4><p style="font-size:13px;color:var(--ink-soft);line-height:1.55">≥ 2 episódios por organismos diferentes. Risco de cepas resistentes e ESBL — guiar empírico pelo antibiograma prévio.</p></div>
+      </div>
+      <div class="tile" style="flex-direction:row;gap:22px;align-items:flex-start;padding:18px 22px;border-left:5px solid var(--pink)">
+        <span class="chip red" style="flex:none">03</span>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:4px">Apresentação grave</h4><p style="font-size:13px;color:var(--ink-soft);line-height:1.55">Sepse, nefrônia lobar aguda ou abscesso renal. Urocultura pode ser negativa em até metade dos casos parenquimatosos.</p></div>
+      </div>
+      <div class="tile" style="flex-direction:row;gap:22px;align-items:flex-start;padding:18px 22px;border-left:5px solid var(--teal)">
+        <span class="chip teal" style="flex:none">04</span>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:4px">Condição subjacente</h4><p style="font-size:13px;color:var(--ink-soft);line-height:1.55">Imunocomprometido, pós-transplante, IRC, diabetes. Perfil microbiológico ampliado — fungos e organismos pouco virulentos entram no diferencial.</p></div>
+      </div>
+      <div class="tile" style="flex-direction:row;gap:22px;align-items:flex-start;padding:18px 22px;border-left:5px solid var(--blue)">
+        <span class="chip" style="flex:none">05</span>
+        <div><h4 style="font-family:'Fraunces',serif;font-size:17px;color:var(--blue-ink);margin-bottom:4px">Neonato &lt; 2 meses</h4><p style="font-size:13px;color:var(--ink-soft);line-height:1.55">Sempre cITU — sem exceção. E. coli e GBS predominam. TMP-SMX e nitrofurantoína contraindicados.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>10–11 · Subgrupos da cITU</span><b>14</b></div>
+</section>
+
+<!-- ═══ 15 · CAP 12+13 — INVESTIGAÇÃO + TRATAMENTO cITU ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulos 12–13 · cITU</span><span>Investigação e tratamento</span></div>
+
+    <div class="ey"><span class="n">12</span>Investigação na cITU</div>
+    <h2 class="t" style="font-size:42px">O que <em>pedir</em> e por quê.</h2>
+    <p class="b" style="margin-top:18px;max-width:640px">Toda criança com suspeita de ITU precisa de EAS + urocultura com antibiograma antes do antibiótico. Os adicionais variam conforme o subgrupo.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:20px">
+      <div class="tile" style="background:var(--pink-soft);border:none;padding:16px 18px">
+        <div class="lbl" style="color:var(--red-deep)">Sepse / nefrônia</div>
+        <p style="font-size:12.5px;color:var(--ink)">Hemocultura · PCR · eletrólitos · creatinina · USG urgente.</p>
+      </div>
+      <div class="tile" style="background:var(--yellow-soft);border:none;padding:16px 18px">
+        <div class="lbl" style="color:#7A5A00">Anomalia / recorrente</div>
+        <p style="font-size:12.5px;color:var(--ink)">PCR/PCT · USG precoce (abscesso, dilatação).</p>
+      </div>
+      <div class="tile" style="background:var(--sky-soft);border:none;padding:16px 18px">
+        <div class="lbl" style="color:var(--blue-deep)">Neonato &lt; 2 meses</div>
+        <p style="font-size:12.5px;color:var(--ink)">Hemocultura · liquor · hemograma · PCR · USG.</p>
+      </div>
+    </div>
+
+    <div class="box tip" style="margin-top:18px">
+      <div class="ico">i</div>
+      <div class="txt"><strong>USG na fase aguda:</strong> só descarta obstrução cirúrgica urgente — não exclui pielonefrite nem identifica RVU.</div>
+    </div>
+
+    <div class="rule" style="margin:26px 0 22px"></div>
+
+    <div class="ey"><span class="n">13</span>Tratamento da cITU</div>
+    <h3 class="st">Via, escolha e <em>duração</em>.</h3>
+
+    <div class="sc" style="margin-bottom:10px;margin-top:14px">IV obrigatório quando</div>
+    <ul class="bl red" style="gap:9px">
+      <li>Urosepse ou sinais hemodinâmicos comprometidos.</li>
+      <li>Lactente &lt; 2 meses — sempre.</li>
+      <li>RVU graus IV–V ou obstrução urológica significativa.</li>
+      <li>Nefrônia lobar aguda ou abscesso renal.</li>
+      <li>Imunocomprometido com neutropenia febril.</li>
+    </ul>
+
+    <div class="box green" style="margin-top:18px">
+      <div class="ico">→</div>
+      <div class="txt"><strong>Step-down para oral</strong> quando afebril, clinicamente bem e tolerando VO — critérios clínicos, não em dias fixos. Carbapenêmicos raramente são empíricos: amicacina cobre adequadamente cepas ESBL.</div>
+    </div>
+  </div>
+  <div class="folio"><span>12–13 · cITU</span><b>15</b></div>
+</section>
+
+<!-- ═══ 16 · CAP 14 — PROTOCOLO DE IMAGEM ═══ -->
+<section class="page">
+  <div class="blob pink" style="width:280px;height:280px;left:-90px;bottom:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 14 · Protocolo de Imagem</span><span>O que, quando e em quem</span></div>
+    <div class="ey"><span class="n">14</span>Imagem</div>
+    <h2 class="t">Não é <em>rotina</em> — é indicação.</h2>
+    <div class="lede">Cada exame de imagem tem timing preciso e impacto clínico que justifique sua realização.</div>
+
+    <div style="margin-top:30px;border-radius:10px;overflow:hidden;border:1px solid var(--rule)">
+      <table class="tbl" style="font-size:12.5px">
+        <thead><tr><th>Exame</th><th style="background:var(--blue)">Indicação principal</th><th style="background:#2F6B6C">Timing</th></tr></thead>
+        <tbody>
+          <tr><td>USG aguda</td><td>Suspeita de abscesso, sepse, baixo fluxo, massa, creatinina elevada</td><td>&lt; 24h</td></tr>
+          <tr><td>USG pós-aguda</td><td>1ª ITU febril + USG pré-natal ausente/anormal; recorrente; sinais de alarme</td><td>Após resolução</td></tr>
+          <tr><td>UCM</td><td>≥ 2 ITUs febris · 1ª ITU + USG alterada · patógeno não-E. coli</td><td>Após tratamento</td></tr>
+          <tr><td>DMSA</td><td>RVU alto grau · ITU recorrente · monitoramento de cicatriz</td><td>≥ 3–6 meses</td></tr>
+          <tr><td>RM urográfica</td><td>Condições urológicas complexas que exigem detalhamento</td><td>Conforme indicação</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px">
+      <div class="box warn">
+        <div class="ico">✕</div>
+        <div class="txt"><strong>USG normal não afasta pielonefrite.</strong> USG tem sensibilidade limitada para lesões parenquimatosas precoces e não identifica RVU.</div>
+      </div>
+      <div class="box tip">
+        <div class="ico">★</div>
+        <div class="txt">A combinação <strong>patógeno não-E. coli + USG alterada</strong> aumenta a probabilidade de RVU alto grau para &gt; 50% — justifica UCM.</div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>14 · Protocolo de imagem</span><b>16</b></div>
+</section>
+
+<!-- ═══ 17 · CAP 15+16 — PROFILAXIA ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulos 15–16 · Profilaxia</span><span>PAC seletiva e alternativas</span></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;flex:1">
+      <div>
+        <div class="ey"><span class="n">15</span>PAC seletiva</div>
+        <h3 class="st">Quem se <em>beneficia</em>.</h3>
+        <p class="b" style="font-size:13.5px;margin-bottom:14px">Meta-análise: NNT 21 crianças tratadas para prevenir 1 ITU recorrente. Benefício modesto que precisa ser ponderado contra resistência.</p>
+        <div class="sc" style="margin-bottom:10px">Indicações com evidência</div>
+        <ul class="bl green" style="gap:9px">
+          <li>RVU graus 3–5</li>
+          <li>BBD + ITU recorrente (estudo RIVUR)</li>
+          <li>Espinha bífida + RVU III–IV</li>
+          <li>Obstrução até correção cirúrgica</li>
+        </ul>
+        <div class="box warn" style="margin-top:18px">
+          <div class="ico">⏱</div>
+          <div class="txt"><strong>Duração máxima 3–6 meses</strong> com reavaliação crítica. Não prescrever indefinidamente.</div>
+        </div>
+      </div>
+      <div>
+        <div class="ey"><span class="n">16</span>Alternativas</div>
+        <h3 class="st">Antes da <em>profilaxia</em>.</h3>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="tile" style="background:var(--green-soft);border:none;padding:14px 18px">
+            <h4 style="font-family:'Fraunces',serif;font-size:16px;color:var(--blue-ink)">Cranberry</h4>
+            <p>Redução de <strong>59%</strong> em ITU sintomática (meta-análise). Sem risco de resistência.</p>
+          </div>
+          <div class="tile" style="background:var(--sky-soft);border:none;padding:14px 18px">
+            <h4 style="font-family:'Fraunces',serif;font-size:16px;color:var(--blue-ink)">Metenamina</h4>
+            <p>Antisséptico via formaldeído urinário. NICE recomenda como alternativa à PAC.</p>
+          </div>
+          <div class="tile" style="background:var(--yellow-soft);border:none;padding:14px 18px">
+            <h4 style="font-family:'Fraunces',serif;font-size:16px;color:var(--blue-ink)">Manejo da BBD</h4>
+            <p>O mais impactante. 80% das ITU recorrentes têm BBD — tratar muda o prognóstico.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>15–16 · Profilaxia e alternativas</span><b>17</b></div>
+</section>
+
+<!-- ═══ 18 · CAP 17+18 — NEONATO + ADOLESCENTE ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulos 17–18 · Populações Especiais</span><span>Quando o padrão muda</span></div>
+
+    <div class="ey"><span class="n">17</span>Neonato</div>
+    <h2 class="t" style="font-size:42px">Uma entidade <em>à parte</em>.</h2>
+    <p class="b" style="margin-top:16px;max-width:640px">Todo neonato com ITU é cITU. Imaturidade imunológica, alto risco de bacteremia e meningite associada — apresentação inespecífica obriga investigação completa.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px">
+      <div class="box blue">
+        <div class="ico">💉</div>
+        <div class="txt"><strong>Ampicilina + Gentamicina IV</strong> conforme OMS. Duração 10–14 dias total. Fase IV até 3 dias (sem bacteremia) ou 7 dias (com bacteremia).</div>
+      </div>
+      <div class="box warn">
+        <div class="ico">✕</div>
+        <div class="txt"><strong>Contraindicados no neonato:</strong> nitrofurantoína (hemólise), TMP-SMX (kernicterus), quinolonas (artropatia).</div>
+      </div>
+    </div>
+
+    <div class="rule" style="margin:24px 0 18px"></div>
+
+    <div class="ey"><span class="n">18</span>Adolescente</div>
+    <h3 class="st">Quando o <em>padrão</em> muda.</h3>
+    <p class="b" style="margin-top:12px;max-width:640px">Em meninas ≥ 13 anos, o manejo segue o padrão adulto — cistite simples tratada em 3 a 5 dias com nitrofurantoína ou TMP-SMX (conforme resistência local).</p>
+
+    <div class="sc" style="margin-top:18px;margin-bottom:12px">Pontos-chave</div>
+    <ul class="bl" style="gap:11px">
+      <li><strong>S. saprophyticus</strong> — patógeno típico da adolescente sexualmente ativa. Tem resistência intrínseca à cefalexina; usar <em>nitrofurantoína</em>.</li>
+      <li><strong>Dipstick com nitritos negativos</strong> é esperado em S. saprophyticus (não converte nitrato) — leuco-esterase costuma ser positiva.</li>
+      <li><strong>Adolescente masculino</strong> com cistite é incomum — sempre investigar com USG após o primeiro episódio.</li>
+      <li><strong>Profilaxia pós-coital</strong> (dose única de antibiótico) é alternativa à PAC diária em ITU recorrente ligada à atividade sexual.</li>
+    </ul>
+  </div>
+  <div class="folio"><span>17–18 · Populações especiais</span><b>18</b></div>
+</section>
+
+<!-- ═══ 19 · CHECKLIST DE CONSULTA ═══ -->
+<section class="page">
+  <div class="blob sky" style="width:260px;height:260px;right:-80px;top:-80px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 19 · Ferramentas Rápidas</span><span>Checklist de consulta</span></div>
+    <div class="ey">Ferramenta prática</div>
+    <h2 class="t">Para cada<br/><em>consulta</em>.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px;flex:1">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="background:#fff;border:1px solid var(--rule);border-radius:10px;padding:22px 24px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+            <div style="width:28px;height:28px;border-radius:7px;background:var(--blue);display:flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg></div>
+            <div style="font-family:'Fraunces',serif;font-size:18px;color:var(--blue-ink);font-weight:500">Diagnóstico</div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Coleta por cateter/punção em &lt; 2 meses?</li>
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>≥ 50.000 UFC/mL em amostra adequada?</li>
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Sintomas + bacteriúria (não tratar assintomática)?</li>
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Investiguei BBD na anamnese?</li>
+          </ul>
+        </div>
+        <div style="background:#fff;border:1px solid var(--rule);border-radius:10px;padding:22px 24px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+            <div style="width:28px;height:28px;border-radius:7px;background:#2F6B6C;display:flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 3v6M9 6l3-3 3 3M4 14a8 8 0 0 0 16 0"/></svg></div>
+            <div style="font-family:'Fraunces',serif;font-size:18px;color:var(--blue-ink);font-weight:500">Antibiótico</div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Espectro estreito conforme cenário?</li>
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Resistência local &lt; 15% para o agente?</li>
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Duração apropriada à apresentação?</li>
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Evitei nitrofurantoína se pielonefrite?</li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="background:#fff;border:1px solid var(--rule);border-radius:10px;padding:22px 24px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+            <div style="width:28px;height:28px;border-radius:7px;background:#D4A500;display:flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div style="font-family:'Fraunces',serif;font-size:18px;color:var(--blue-ink);font-weight:500">Reavaliação 48h</div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Afebril ou em defervescência clara?</li>
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>De-escalei conforme antibiograma?</li>
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--blue);margin-top:2px"></span>Reconsiderei diagnóstico se cultura negativa?</li>
+          </ul>
+        </div>
+        <div style="background:#FCE9EA;border:1.5px solid var(--red);border-radius:10px;padding:22px 24px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+            <div style="width:28px;height:28px;border-radius:7px;background:var(--red);display:flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2l10 18H2z"/><path d="M12 9v5M12 17h.01"/></svg></div>
+            <div style="font-family:'Fraunces',serif;font-size:18px;color:var(--red-deep);font-weight:500">Sinais de alerta</div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--red-deep)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--red);margin-top:2px"></span>Sinais de urosepse ou hipotensão?</li>
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--red-deep)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--red);margin-top:2px"></span>Falha terapêutica em 48 horas?</li>
+            <li style="display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--red-deep)"><span style="flex:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--red);margin-top:2px"></span>Massa abdominal ou creatinina elevada?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>19 · Checklist de consulta</span><b>19</b></div>
+</section>
+
+<!-- ═══ 20 · CAP 20 — OS 10 ERROS ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 20 · Erros Comuns</span><span>O que a evidência diz</span></div>
+    <div class="ey">Síntese</div>
+    <h2 class="t" style="font-size:42px">Os <em>10 erros</em> mais comuns.</h2>
+    <div class="lede">Não é julgamento — é espelho. Reconheça antes de cometer.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;flex:1">
+      <div class="gold" style="padding:14px 18px"><div class="n" style="font-size:32px">1</div><div><h5 style="font-size:14px">Saco coletor como diagnóstico</h5><p style="font-size:11.5px">88% falsos-positivos. Apenas triagem negativa.</p></div></div>
+      <div class="gold" style="background:var(--pink-soft);border-color:rgba(217,93,98,.2);padding:14px 18px"><div class="n" style="color:var(--red-deep);font-size:32px">2</div><div><h5 style="font-size:14px">Tratar bacteriúria assintomática</h5><p style="font-size:11.5px">Sem benefício; seleciona resistência.</p></div></div>
+      <div class="gold" style="background:var(--green-soft);border-color:rgba(47,143,90,.2);padding:14px 18px"><div class="n" style="color:var(--green);font-size:32px">3</div><div><h5 style="font-size:14px">Nitrofurantoína em pielonefrite</h5><p style="font-size:11.5px">Não atinge concentração no parênquima renal.</p></div></div>
+      <div class="gold" style="background:var(--teal-soft);border-color:rgba(47,107,108,.2);padding:14px 18px"><div class="n" style="color:#2F6B6C;font-size:32px">4</div><div><h5 style="font-size:14px">Omitir avaliação de BBD</h5><p style="font-size:11.5px">Presente em 80% das ITU recorrentes.</p></div></div>
+      <div class="gold" style="background:var(--sky-soft);border-color:rgba(82,133,183,.2);padding:14px 18px"><div class="n" style="color:var(--blue-deep);font-size:32px">5</div><div><h5 style="font-size:14px">PAC após 1º episódio sem anomalia</h5><p style="font-size:11.5px">ECRs não mostram redução clinicamente significativa.</p></div></div>
+      <div class="gold" style="padding:14px 18px"><div class="n" style="font-size:32px">6</div><div><h5 style="font-size:14px">UCM de rotina pós-ITU febril</h5><p style="font-size:11.5px">Tem indicação precisa — não fazer de rotina.</p></div></div>
+      <div class="gold" style="background:var(--pink-soft);border-color:rgba(217,93,98,.2);padding:14px 18px"><div class="n" style="color:var(--red-deep);font-size:32px">7</div><div><h5 style="font-size:14px">Não reavaliar em 48h</h5><p style="font-size:11.5px">Ponto mais subestimado do manejo da ITU.</p></div></div>
+      <div class="gold" style="background:var(--green-soft);border-color:rgba(47,143,90,.2);padding:14px 18px"><div class="n" style="color:var(--green);font-size:32px">8</div><div><h5 style="font-size:14px">Carbapenêmico empírico sem indicação</h5><p style="font-size:11.5px">Amicacina cobre adequadamente cepas ESBL.</p></div></div>
+      <div class="gold" style="background:var(--teal-soft);border-color:rgba(47,107,108,.2);padding:14px 18px"><div class="n" style="color:#2F6B6C;font-size:32px">9</div><div><h5 style="font-size:14px">Manter IV sem critério clínico</h5><p style="font-size:11.5px">Step-down é clínico — não número de dias.</p></div></div>
+      <div class="gold" style="background:var(--sky-soft);border-color:rgba(82,133,183,.2);padding:14px 18px"><div class="n" style="color:var(--blue-deep);font-size:32px">10</div><div><h5 style="font-size:14px">Ampliar espectro sem investigar</h5><p style="font-size:11.5px">Investigue a causa da falha antes de trocar ATB.</p></div></div>
+    </div>
+  </div>
+  <div class="folio"><span>20 · Erros comuns</span><b>20</b></div>
+</section>
+
+<!-- ═══ 21 · CONTRACAPA ═══ -->
+<section class="page back">
+  <svg style="position:absolute;right:-80px;top:-80px;width:380px;opacity:.16" viewBox="0 0 300 300" fill="none">
+    <circle cx="150" cy="150" r="140" stroke="#FDDB5C" stroke-width="1"/>
+    <circle cx="150" cy="150" r="100" stroke="#92D4D5" stroke-width="1"/>
+    <circle cx="150" cy="150" r="58" fill="#F7ADAF" opacity=".5"/>
+  </svg>
+  <div class="pi" style="justify-content:space-between">
+    <div>
+      <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--yellow);font-weight:700;margin-bottom:28px">ITU na Prática Pediátrica</div>
+      <div style="font-family:'Fraunces',serif;font-weight:300;font-size:52px;line-height:1.04;letter-spacing:-.015em;max-width:560px;color:#fff">
+        Do raciocínio<br/>clínico à <em style="color:var(--yellow);font-style:italic;font-weight:400">decisão segura</em>.
+      </div>
+      <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:21px;line-height:1.5;color:rgba(255,255,255,.8);max-width:540px;margin-top:24px">Um guia que integra as melhores evidências de 2025–2026 em um raciocínio clínico aplicável ao consultório, ao pronto-socorro e à enfermaria.</p>
+    </div>
+    <div>
+      <div style="display:flex;gap:12px;margin-bottom:28px">
+        <span style="width:22px;height:22px;border-radius:50%;background:#5285B7"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#A5CAE0"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#FDDB5C"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#F7ADAF"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#92D4D5"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.15);padding-top:22px">
+        <div>
+          <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600">Autoria</div>
+          <div style="font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-top:4px">Dra. Ana Luísa Pacheco</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.6);margin-top:3px">Pediatra · Infectologista Pediátrica</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600">Edição</div>
+          <div style="font-family:'Fraunces',serif;font-size:19px;color:#fff;margin-top:4px">ITU · 2026</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.6);margin-top:3px">© 2026 · Todos os direitos reservados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

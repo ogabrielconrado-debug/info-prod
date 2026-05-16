@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<title>A Criança com Dor de Garganta — Dra. Ana Luísa Pacheco</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --blue:#5285B7; --blue-deep:#3A6A99; --blue-ink:#1F3A5C;
+  --sky:#A5CAE0;  --sky-soft:#D6E6F1;
+  --yellow:#FDDB5C; --yellow-soft:#FEEFB7;
+  --pink:#F7ADAF;   --pink-soft:#FBD8D9;
+  --teal:#92D4D5;   --teal-soft:#D1EDEE;
+  --ink:#1B2B3D;    --ink-soft:#4A5A6E;
+  --paper:#FBF8F3;  --paper-warm:#F5EEE2;
+  --rule:#E6DFD1;
+  --red:#D95D62;    --red-deep:#8B3236;
+  --green:#2F8F5A;  --green-soft:#C8EDDA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#E9E4D8;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+body{padding:56px 20px 130px;display:flex;flex-direction:column;align-items:center;gap:56px}
+
+.page{width:min(820px,100%);aspect-ratio:794/1123;background:var(--paper);box-shadow:0 32px 72px -20px rgba(31,58,92,.24),0 8px 24px -8px rgba(31,58,92,.12);position:relative;overflow:hidden;border-radius:4px}
+.pi{position:absolute;inset:0;padding:72px 80px 88px;display:flex;flex-direction:column}
+.folio{position:absolute;left:0;right:0;bottom:30px;display:flex;justify-content:space-between;align-items:center;padding:0 80px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.folio b{color:var(--blue-deep)}
+
+.ph{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule);padding-bottom:16px;margin-bottom:40px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.ph .c{color:var(--blue-deep);font-weight:700}
+
+.ey{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--blue-deep);display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.ey::before{content:"";display:block;width:30px;height:1.5px;background:var(--blue-deep)}
+.ey .n{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:0}
+
+h2.t{font-family:'Fraunces',serif;font-weight:400;font-size:50px;line-height:.98;letter-spacing:-.02em;color:var(--blue-ink);font-variation-settings:"opsz" 144}
+h2.t em{font-style:italic;font-weight:300;color:var(--blue)}
+h3.st{font-family:'Fraunces',serif;font-weight:500;font-size:26px;color:var(--blue-ink);letter-spacing:-.01em;margin-bottom:14px;line-height:1.1}
+h3.st em{font-style:italic;color:var(--blue);font-weight:300}
+.lede{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:21px;line-height:1.45;color:var(--ink-soft);margin-top:16px}
+p.b{font-size:14px;line-height:1.72;color:var(--ink)}
+p.b+p.b{margin-top:14px}
+.rule{height:1px;background:var(--rule);margin:24px 0}
+.sc{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+
+.box{border-radius:8px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.box .ico{flex:none;width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700}
+.box .txt{font-size:13.5px;line-height:1.58;color:var(--blue-ink);font-weight:500}
+.box.blue{background:var(--sky-soft)}
+.box.warn{background:#FCE9EA}.box.warn .ico{background:var(--red)}.box.warn .txt{color:#6F262A}
+.box.tip{background:var(--yellow-soft)}.box.tip .ico{background:#D4A500;color:#fff}.box.tip .txt{color:#5F4400}
+.box.green{background:var(--green-soft)}.box.green .ico{background:var(--green);color:#fff}.box.green .txt{color:#1A5C38}
+.box.teal{background:var(--teal-soft)}.box.teal .ico{background:#2F6B6C}.box.teal .txt{color:#1e4949}
+
+.bl{display:flex;flex-direction:column;gap:10px}
+.bl li{list-style:none;display:flex;gap:12px;align-items:flex-start;font-size:13.5px;line-height:1.6;color:var(--ink)}
+.bl li::before{content:"";flex:none;margin-top:9px;width:7px;height:7px;border-radius:2px;background:var(--blue);transform:rotate(45deg)}
+.bl.red li::before{background:var(--red)}.bl.green li::before{background:var(--green)}.bl.yellow li::before{background:var(--yellow)}.bl.teal li::before{background:var(--teal)}
+
+.tile{background:#fff;border-radius:8px;padding:20px 22px;border:1px solid var(--rule);display:flex;flex-direction:column;gap:9px}
+.tile .lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.tile .big{font-family:'Fraunces',serif;font-weight:500;font-size:44px;line-height:1;color:var(--blue-ink);letter-spacing:-.02em}
+.tile .big em{font-style:italic;color:var(--blue);font-weight:400}
+.tile p{font-size:12.5px;line-height:1.55;color:var(--ink-soft)}
+.tile h4{font-family:'Fraunces',serif;font-weight:500;font-size:19px;color:var(--blue-ink)}
+
+.tbl{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;font-size:12.5px}
+.tbl th{background:var(--blue-ink);color:#fff;padding:10px 14px;text-align:left;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.tbl td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5;color:var(--ink)}
+.tbl tr:nth-child(even) td{background:rgba(82,133,183,.04)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td:first-child{font-weight:600;color:var(--blue-ink);background:var(--paper-warm)}
+
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--sky-soft);color:var(--blue-ink);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.chip.yellow{background:var(--yellow-soft);color:#7A5A00}
+.chip.red{background:var(--pink-soft);color:var(--red-deep)}
+.chip.green{background:var(--green-soft);color:#1A5C38}
+
+.qcard{background:var(--blue-ink);color:#fff;border-radius:10px;padding:28px 32px;position:relative;overflow:hidden}
+.qcard::before{content:"\201C";position:absolute;right:16px;top:-10px;font-size:150px;color:var(--yellow);opacity:.28;font-family:'Fraunces',serif;line-height:1}
+.qcard p{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:22px;line-height:1.35;max-width:530px}
+.qcard .att{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--yellow);font-weight:600;margin-top:14px}
+
+.photo-wrap{border-radius:8px;overflow:hidden;position:relative}
+.photo-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(31,58,92,.18))}
+.photo-wrap .stripe{position:absolute;left:-10px;top:24px;width:64px;height:8px;background:var(--yellow);z-index:2}
+.photo-bg{background-image:url('assets/dra-ana-luisa.jpg');background-size:cover;background-position:center top}
+
+.toc-row{display:grid;grid-template-columns:42px 34px 1fr auto;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.toc-row .n{font-family:'Fraunces',serif;font-size:18px;color:var(--blue);font-weight:500;font-style:italic;white-space:nowrap}
+.toc-row .ic{width:32px;height:32px;border-radius:50%;background:var(--sky-soft);display:flex;align-items:center;justify-content:center;color:var(--blue-ink)}
+.toc-row .ic svg{width:15px;height:15px}
+.toc-row .ttl{font-family:'Fraunces',serif;font-size:18px;color:var(--blue-ink);font-weight:400}
+.toc-row .ttl .sub{display:block;font-family:'Inter',sans-serif;font-size:11.5px;color:var(--ink-soft);font-weight:400;margin-top:2px}
+.toc-row .pg{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft)}
+.toc-part{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);font-weight:700;padding:14px 0 4px;border-bottom:2px solid var(--blue);margin-bottom:2px}
+
+.gold{background:var(--yellow-soft);border:1px solid rgba(212,165,0,.2);border-radius:8px;padding:20px 22px;display:flex;gap:14px}
+.gold .n{font-family:'Fraunces',serif;font-size:40px;color:var(--blue-ink);font-weight:500;line-height:1;font-style:italic;flex:none;width:46px}
+.gold h5{font-family:'Fraunces',serif;font-weight:500;font-size:17px;color:var(--blue-ink);margin-bottom:5px}
+.gold p{font-size:12.5px;color:var(--ink-soft);line-height:1.55}
+
+.back{background:var(--blue-ink);color:#fff}
+.cover-graphic{position:absolute;right:-30px;top:50%;width:470px;height:470px;pointer-events:none;z-index:1;transform:translateY(-50%)}
+.blob{position:absolute;border-radius:50%;pointer-events:none;opacity:.22;background:var(--yellow)}
+.blob.sky{background:var(--sky);opacity:.34}
+.blob.pink{background:var(--pink);opacity:.28}
+.blob.teal{background:var(--teal);opacity:.3}
+
+.dropcap::first-letter{font-family:'Fraunces',serif;font-weight:400;font-style:italic;float:left;font-size:74px;line-height:.84;color:var(--blue);padding:6px 13px 0 0}
+
+/* funnel layers */
+.layer{border-radius:10px;padding:22px 26px;display:flex;gap:18px;align-items:flex-start;border:2px solid}
+.layer .dot{flex:none;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:18px;font-weight:600}
+.layer h4{font-family:'Fraunces',serif;font-weight:500;font-size:22px;color:var(--blue-ink);margin-bottom:6px}
+.layer p{font-size:13.5px;line-height:1.55;color:var(--ink)}
+.layer.red{background:#FCE9EA;border-color:var(--red)}.layer.red .dot{background:var(--red)}
+.layer.yellow{background:var(--yellow-soft);border-color:#D4A500}.layer.yellow .dot{background:#D4A500}
+.layer.green{background:var(--green-soft);border-color:var(--green)}.layer.green .dot{background:var(--green)}
+
+@media print{
+  @page{size:A4 portrait;margin:0}
+  html,body{background:#fff!important;padding:0!important;margin:0!important;gap:0!important;display:block!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .page{box-shadow:none!important;border-radius:0!important;width:210mm!important;height:297mm!important;aspect-ratio:auto!important;margin:0!important;break-after:page;page-break-after:always;break-inside:avoid;overflow:hidden!important}
+  .page:last-child{break-after:auto;page-break-after:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ 01 · CAPA ═══ -->
+<section class="page" style="background:radial-gradient(120% 70% at 100% 0%,var(--sky-soft) 0%,transparent 55%),radial-gradient(90% 60% at 0% 100%,var(--yellow-soft) 0%,transparent 55%),var(--paper)">
+  <svg class="cover-graphic" viewBox="0 0 470 470" fill="none" aria-hidden="true">
+    <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A5CAE0"/><stop offset="1" stop-color="#5285B7"/></linearGradient></defs>
+    <circle cx="235" cy="235" r="200" fill="url(#g1)" opacity=".3"/>
+    <circle cx="235" cy="235" r="144" fill="#FDDB5C" opacity=".5"/>
+    <circle cx="235" cy="235" r="90" fill="#92D4D5" opacity=".88"/>
+    <!-- throat / mouth icon -->
+    <g transform="translate(155,140)" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity=".9">
+      <ellipse cx="80" cy="80" rx="78" ry="55" fill="white" opacity=".88" stroke="#1F3A5C"/>
+      <ellipse cx="80" cy="80" rx="40" ry="32" fill="#D95D62" opacity=".7"/>
+      <ellipse cx="80" cy="80" rx="18" ry="22" fill="#8B3236" opacity=".85"/>
+      <!-- tonsils dots -->
+      <circle cx="40" cy="85" r="6" fill="#F7ADAF" opacity=".95"/>
+      <circle cx="120" cy="85" r="6" fill="#F7ADAF" opacity=".95"/>
+      <!-- uvula -->
+      <path d="M80 50 L78 75 L82 75 Z" fill="#F7ADAF" stroke="none"/>
+    </g>
+  </svg>
+  <div class="pi" style="justify-content:space-between;z-index:2">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'Fraunces',serif;font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-ink)">
+        <span style="width:10px;height:10px;border-radius:50%;background:var(--blue);display:block"></span>Dra. Ana Luísa Pacheco · Infectologia Pediátrica
+      </div>
+      <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;writing-mode:vertical-rl;transform:rotate(180deg)">Edição 01 · 2026</div>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--blue-deep);display:inline-flex;align-items:center;gap:14px;margin-bottom:28px">
+        <span style="display:block;width:48px;height:1.5px;background:var(--blue-deep)"></span>Guia Prático · Pediatria
+      </div>
+      <div style="font-family:'Fraunces',serif;font-weight:400;font-size:60px;line-height:.96;letter-spacing:-.025em;color:var(--blue-ink);font-variation-settings:'opsz' 144">
+        A criança<br/>com dor de<br/><em style="font-style:italic;color:var(--blue);font-weight:300">garganta</em>.
+      </div>
+      <div style="margin-top:24px;font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.4;color:var(--ink-soft);max-width:520px;font-weight:300">Um sistema de decisão clínica — do raciocínio diagnóstico à conduta segura.</div>
+    </div>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;padding-top:24px;border-top:1px solid var(--rule)">
+      <div>
+        <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:5px">Autoria</div>
+        <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--blue-ink)">Dra. Ana Luísa Pacheco</div>
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-top:3px">Pediatra · Infectologista Pediátrica</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:5px">Baseado em</div>
+        <div style="font-family:'Fraunces',serif;font-size:14px;font-weight:500;color:var(--blue-ink)">UpToDate · IDSA · CDC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 02 · SOBRE A AUTORA ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Sobre a Autora</span><span>A Criança com Dor de Garganta</span></div>
+    <div style="display:grid;grid-template-columns:290px 1fr;gap:52px;align-items:flex-start;flex:1">
+      <div><div class="photo-wrap photo-bg" style="aspect-ratio:3/4"><div class="stripe"></div></div></div>
+      <div>
+        <div class="ey">Autoria</div>
+        <h2 class="t" style="font-size:46px">Dra. Ana Luísa <em>Pacheco</em></h2>
+        <div class="lede">Pediatra e infectologista pediátrica — formadora de clínicos que decidem com mais rigor e segurança.</div>
+        <div class="rule"></div>
+        <p class="b">Médica pediatra e infectologista pediátrica com atuação consolidada na assistência especializada, ensino médico e produção científica. Dedicou-se à integração entre prática baseada em evidências, raciocínio clínico estruturado e ensino aplicado à rotina.</p>
+        <p class="b">Este guia foi construído como um <strong>sistema de pensamento</strong> — não um manual de patologia. Sintetiza as melhores evidências contemporâneas (UpToDate, IDSA, CDC e diretrizes brasileiras) em um funil diagnóstico aplicável ao consultório.</p>
+        <div class="box tip" style="margin-top:24px">
+          <div class="ico">"</div>
+          <div class="txt">"Este não é um guia sobre faringoamigdalite. É um sistema para pensar a criança com dor de garganta."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Sobre a Autora</span><b>02</b></div>
+</section>
+
+<!-- ═══ 03 · APRESENTAÇÃO ═══ -->
+<section class="page">
+  <div class="blob sky" style="width:320px;height:320px;right:-110px;top:-110px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Apresentação</span><span>Por que este livro existe</span></div>
+    <div class="ey">Apresentação</div>
+    <h2 class="t">Um <em>sistema</em>,<br/>não um manual.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:34px;align-items:flex-start;flex:1">
+      <div>
+        <p class="b dropcap">Você está na frente de uma criança com dor de garganta. Ela tem febre, a garganta está vermelha, e os pais querem saber o que fazer. O que passa pela sua cabeça nos próximos segundos determina se você vai prescrever o antibiótico certo, o errado — ou nenhum, quando seria necessário.</p>
+        <p class="b">Faringoamigdalite é uma das queixas mais comuns em pediatria — e, por ser comum, uma das mais mal manejadas. Não por falta de conhecimento, mas por falta de um <strong>sistema claro de raciocínio</strong>.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="qcard">
+          <p>Não é uma revisão de patologia da amígdala. É uma estrutura de pensamento para o momento da consulta.</p>
+          <div class="att">— Princípio central</div>
+        </div>
+        <div class="box blue">
+          <div class="ico">★</div>
+          <div class="txt"><strong>Funil diagnóstico</strong> em três camadas: 🔴 gravidade → 🟡 padrão clínico → 🟢 viral ou bacteriana.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>Apresentação</span><b>03</b></div>
+</section>
+
+<!-- ═══ 04 · SUMÁRIO ═══ -->
+<section class="page">
+  <div class="blob sky" style="width:280px;height:280px;right:-90px;top:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Sumário</span><span>6 módulos · 16 capítulos</span></div>
+    <div class="ey">Índice</div>
+    <h2 class="t" style="font-size:46px">Do raciocínio<br/>à <em>conduta segura</em>.</h2>
+
+    <div style="margin-top:28px;flex:1">
+      <div class="toc-part">Módulo 0 — Funil Diagnóstico</div>
+      <div class="toc-row"><span class="n">01</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M3 6h18M9 18h12"/></svg></span><span class="ttl">O raciocínio antes do diagnóstico<span class="sub">Três camadas de decisão</span></span><span class="pg">p.05</span></div>
+
+      <div class="toc-part" style="margin-top:14px">Módulo 1 — 🔴 Camada 1: Gravidade</div>
+      <div class="toc-row"><span class="n">02–03</span><span class="ic" style="background:var(--pink-soft);color:var(--red-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l10 18H2z"/><path d="M12 9v5M12 17h.01"/></svg></span><span class="ttl">Reconhecer o que não pode ser perdido<span class="sub">Epiglotite · abscesso · Lemierre · difteria</span></span><span class="pg">p.07</span></div>
+
+      <div class="toc-part" style="margin-top:14px">Módulo 2 — 🟡 Camada 2: Padrão clínico</div>
+      <div class="toc-row"><span class="n">04–06</span><span class="ic" style="background:var(--yellow-soft);color:#7A5A00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg></span><span class="ttl">Leitura clínica e anamnese direcionada<span class="sub">O exame que orienta antes do teste</span></span><span class="pg">p.09</span></div>
+
+      <div class="toc-part" style="margin-top:14px">Módulo 3 — 🟢 Camada 3: Viral ou bacteriana</div>
+      <div class="toc-row"><span class="n">07–09</span><span class="ic" style="background:var(--green-soft);color:var(--green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l4 4L19 6"/></svg></span><span class="ttl">Testar ou não testar<span class="sub">RADT, cultura, NAAT e quando dispensar</span></span><span class="pg">p.11</span></div>
+
+      <div class="toc-part" style="margin-top:14px">Módulos 4–6 — Decisão, recorrência, ferramentas</div>
+      <div class="toc-row"><span class="n">10–13</span><span class="ic" style="background:var(--teal-soft);color:#2F6B6C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v6M9 6l3-3 3 3M4 14a8 8 0 0 0 16 0"/></svg></span><span class="ttl">Decisão terapêutica<span class="sub">Antibiótico, dose, duração e casos especiais</span></span><span class="pg">p.13</span></div>
+      <div class="toc-row"><span class="n">14–15</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8M21 21v-7h-7"/></svg></span><span class="ttl">Amigdalite recorrente e tonsilectomia<span class="sub">Critérios de Paradise · decisão compartilhada</span></span><span class="pg">p.15</span></div>
+      <div class="toc-row"><span class="n">16</span><span class="ic" style="background:var(--pink-soft);color:var(--red-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2h6v4H9zM6 6h12v16H6z"/></svg></span><span class="ttl">Referência rápida<span class="sub">Fluxogramas, tabelas e checklists</span></span><span class="pg">p.17</span></div>
+    </div>
+  </div>
+  <div class="folio"><span>Sumário</span><b>04</b></div>
+</section>
+
+<!-- ═══ 05 · O FUNIL ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 01 · O Funil Diagnóstico</span><span>Módulo 0</span></div>
+    <div class="ey"><span class="n">1</span>Funil diagnóstico</div>
+    <h2 class="t">Três camadas,<br/>uma <em>sequência</em>.</h2>
+    <div class="lede">Diante de qualquer criança com dor de garganta, o raciocínio segue sempre nessa ordem.</div>
+
+    <div style="display:flex;flex-direction:column;gap:18px;margin-top:32px;flex:1">
+      <div class="layer red">
+        <div class="dot">🔴</div>
+        <div>
+          <h4>Camada 1 — Essa criança está grave agora?</h4>
+          <p>Estridor, sialorreia, distress respiratório, voz abafada, trismo, toxemia, dor cervical intensa.<br/><strong>Presente → URGÊNCIA</strong> · ausente → seguir para Camada 2.</p>
+        </div>
+      </div>
+      <div class="layer yellow">
+        <div class="dot" style="color:#5F4400">🟡</div>
+        <div>
+          <h4>Camada 2 — Existe um padrão clínico reconhecível?</h4>
+          <p>Vesículas, membrana aderente, abaulamento peritonsilar, exsudato + fadiga em adolescente.<br/><strong>Presente → diagnóstico clínico definido</strong> · ausente → seguir para Camada 3.</p>
+        </div>
+      </div>
+      <div class="layer green">
+        <div class="dot">🟢</div>
+        <div>
+          <h4>Camada 3 — É viral ou bacteriana? Preciso testar?</h4>
+          <p>Sinais virais múltiplos → sintomático, sem teste. Quadro ambíguo ou sem sinais virais → RADT (+ 2º swab reserva).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="box blue" style="margin-top:18px">
+      <div class="ico">i</div>
+      <div class="txt">O funil é um <strong>mapa, não uma regra rígida</strong>. Casos complexos percorrem as três camadas. Casos simples (vesículas + lactente febril) resolvem na Camada 2 sem teste.</div>
+    </div>
+  </div>
+  <div class="folio"><span>01 · Funil diagnóstico</span><b>05</b></div>
+</section>
+
+<!-- ═══ 06 · ABERTURA MÓDULO 1 — sinais de alarme ═══ -->
+<section class="page">
+  <div class="blob pink" style="width:280px;height:280px;right:-90px;top:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Módulo 1 · 🔴 Camada 1</span><span>O que não pode ser perdido</span></div>
+    <div class="ey">Sinais de alarme</div>
+    <h2 class="t">Avaliação nos<br/>primeiros <em>60 segundos</em>.</h2>
+    <div class="lede">Qualquer um dos itens abaixo presente: urgência. Não prosseguir para avaliação de rotina.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px;flex:1">
+      <div class="tile" style="background:#FCE9EA;border:none;padding:16px 20px"><div style="font-family:'Fraunces',serif;font-size:16px;color:var(--red-deep);font-weight:500">Estridor</div><p>Ruído inspiratório audível sem auscultar.</p></div>
+      <div class="tile" style="background:#FCE9EA;border:none;padding:16px 20px"><div style="font-family:'Fraunces',serif;font-size:16px;color:var(--red-deep);font-weight:500">Sialorreia</div><p>Saliva que a criança não consegue engolir.</p></div>
+      <div class="tile" style="background:#FCE9EA;border:none;padding:16px 20px"><div style="font-family:'Fraunces',serif;font-size:16px;color:var(--red-deep);font-weight:500">Desconforto respiratório</div><p>Taquipneia, retrações, batimento de asa nasal.</p></div>
+      <div class="tile" style="background:#FCE9EA;border:none;padding:16px 20px"><div style="font-family:'Fraunces',serif;font-size:16px;color:var(--red-deep);font-weight:500">Voz abafada</div><p>"Voz de batata quente".</p></div>
+      <div class="tile" style="background:#FCE9EA;border:none;padding:16px 20px"><div style="font-family:'Fraunces',serif;font-size:16px;color:var(--red-deep);font-weight:500">Trismo</div><p>Incapacidade de abrir a boca completamente.</p></div>
+      <div class="tile" style="background:#FCE9EA;border:none;padding:16px 20px"><div style="font-family:'Fraunces',serif;font-size:16px;color:var(--red-deep);font-weight:500">Recusa de mover pescoço</div><p>Postura antálgica cervical.</p></div>
+      <div class="tile" style="background:#FCE9EA;border:none;padding:16px 20px"><div style="font-family:'Fraunces',serif;font-size:16px;color:var(--red-deep);font-weight:500">Aparência tóxica</div><p>Irritabilidade extrema, prostração, palidez.</p></div>
+      <div class="tile" style="background:#FCE9EA;border:none;padding:16px 20px"><div style="font-family:'Fraunces',serif;font-size:16px;color:var(--red-deep);font-weight:500">Dor cervical unilateral</div><p>Desproporcional ao quadro faríngeo.</p></div>
+    </div>
+  </div>
+  <div class="folio"><span>Sinais de alarme · 60 segundos</span><b>06</b></div>
+</section>
+
+<!-- ═══ 07 · CAP 3 — EMERGÊNCIAS ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 03 · As Emergências</span><span>Quando o tempo conta</span></div>
+    <div class="ey"><span class="n">3</span>Emergências</div>
+    <h2 class="t" style="font-size:44px">Mapeando o que <em>não pode</em> esperar.</h2>
+
+    <div style="margin-top:28px;border-radius:10px;overflow:hidden;border:1px solid var(--rule)">
+      <table class="tbl">
+        <thead><tr><th style="width:36%">Sinal predominante</th><th style="background:var(--blue);width:30%">Diagnóstico</th><th style="background:var(--red-deep)">Próxima ação</th></tr></thead>
+        <tbody>
+          <tr><td>Estridor + sialorreia + posição de tripé</td><td>Epiglotite</td><td>Não examinar agressivamente. Chamar anestesia/ORL.</td></tr>
+          <tr><td>Recusa de mover pescoço + febre + &lt; 4 anos</td><td>Abscesso retrofaríngeo</td><td>TC pescoço com contraste. ATB IV.</td></tr>
+          <tr><td>Úvula desviada + trismo + voz abafada</td><td>Abscesso peritonsilar</td><td>Drenagem + ATB. Avaliar ORL.</td></tr>
+          <tr><td>Febre + dor cervical unilateral + toxemia</td><td>Síndrome de Lemierre</td><td>TC pescoço com contraste. ATB IV prolongado.</td></tr>
+          <tr><td>Membrana faríngea + não vacinado</td><td>Difteria</td><td>Antitoxina imediata. Não aguardar cultura.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box warn" style="margin-top:24px">
+      <div class="ico">⚠</div>
+      <div class="txt"><strong>Lemierre:</strong> adolescente / jovem adulto com faringoamigdalite "que não melhorou" + dor cervical intensa unilateral + toxemia persistente. Pensar antes que seja tarde — TC com contraste confirma trombose da jugular interna.</div>
+    </div>
+
+    <div class="box tip" style="margin-top:14px">
+      <div class="ico">i</div>
+      <div class="txt"><strong>Difteria:</strong> antitoxina é a prioridade absoluta — a toxina já ligada ao tecido não é neutralizável. Penicilina cristalina IV ou eritromicina por 14 dias. Notificação compulsória imediata.</div>
+    </div>
+  </div>
+  <div class="folio"><span>03 · Emergências</span><b>07</b></div>
+</section>
+
+<!-- ═══ 08 · CAP 4 — LEITURA CLÍNICA ═══ -->
+<section class="page">
+  <div class="blob teal" style="width:280px;height:280px;left:-90px;bottom:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 04 · Leitura Clínica</span><span>Módulo 2 · 🟡 Camada 2</span></div>
+    <div class="ey"><span class="n">4</span>Leitura da orofaringe</div>
+    <h2 class="t">O exame que orienta<br/>o <em>diagnóstico</em>.</h2>
+    <div class="lede">Eritema e exsudato são comuns e pouco específicos. O que orienta são os achados associados.</div>
+
+    <div style="margin-top:28px;border-radius:10px;overflow:hidden;border:1px solid var(--rule)">
+      <table class="tbl">
+        <thead><tr><th style="width:42%">Achado clínico</th><th style="background:var(--blue);width:30%">O que sugere</th><th style="background:#2F6B6C">Conduta</th></tr></thead>
+        <tbody>
+          <tr><td>Vesículas na orofaringe posterior</td><td>Herpangina (Coxsackie A)</td><td>Sintomático · sem teste</td></tr>
+          <tr><td>Vesículas + lesões em palmas/plantas</td><td>Mão-pé-boca (enterovírus)</td><td>Sintomático · sem teste</td></tr>
+          <tr><td>Petéquias palatinas + exsudato</td><td>GAS</td><td>RADT · tratar se positivo</td></tr>
+          <tr><td>Exsudato + adenopatia posterior + fadiga (adolescente)</td><td>Mononucleose (EBV)</td><td>Monospot · NÃO dar amoxicilina</td></tr>
+          <tr><td>Membrana aderente acinzentada</td><td>Difteria</td><td>Antitoxina imediata</td></tr>
+          <tr><td>Candidíase fora da lactância</td><td>Imunodeficiência</td><td>Investigar HIV, neoplasia, imunodef.</td></tr>
+          <tr><td>Conjuntivite + febre + faringite</td><td>Adenovírus</td><td>Sintomático</td></tr>
+          <tr><td>Exantema escarlatiniforme + odinofagia</td><td>Escarlatina (GAS)</td><td>RADT · tratar se positivo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box warn" style="margin-top:22px">
+      <div class="ico">!</div>
+      <div class="txt"><strong>Adolescente com exsudato + adenopatia posterior + fadiga:</strong> mononucleose até prova em contrário. Amoxicilina antes de excluir EBV → exantema em 80–100% dos casos, gerando rótulo equivocado de "alergia à penicilina" para toda a vida.</div>
+    </div>
+  </div>
+  <div class="folio"><span>04 · Leitura clínica</span><b>08</b></div>
+</section>
+
+<!-- ═══ 09 · CAP 5+6 — ANAMNESE + NÃO INFECCIOSOS ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulos 05–06 · Anamnese e diferenciais</span><span>Módulo 2 · 🟡</span></div>
+    <div class="ey"><span class="n">5–6</span>Anamnese direcionada</div>
+    <h2 class="t" style="font-size:42px">A idade <em>contextualiza</em><br/>o diagnóstico.</h2>
+
+    <div style="margin-top:26px;border-radius:10px;overflow:hidden;border:1px solid var(--rule)">
+      <table class="tbl">
+        <thead><tr><th style="width:28%">Faixa etária</th><th style="background:var(--blue)">Pista clínica</th></tr></thead>
+        <tbody>
+          <tr><td>&lt; 1 ano</td><td>GAS é extremamente raro. Apresentação inespecífica — predominância viral.</td></tr>
+          <tr><td>1 a 3 anos</td><td>"Estreptococose": descarga nasal mucopurulenta prolongada + febre baixa + adenopatia anterior.</td></tr>
+          <tr><td>3 a 15 anos</td><td>Território do GAS. 15–30% dos casos. Início abrupto, exsudato, petéquias, sem sintomas virais.</td></tr>
+          <tr><td>Adolescentes</td><td>Território do EBV. Fadiga, adenopatia posterior, esplenomegalia, duração arrastada.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rule" style="margin:28px 0 22px"></div>
+
+    <div class="ey">Diferenciais não infecciosos</div>
+    <h3 class="st">Quando a garganta <em>não</em> é o problema.</h3>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:18px">
+      <div class="tile" style="background:var(--sky-soft);border:none;padding:16px 18px">
+        <div class="lbl">Inflamatório</div>
+        <h4 style="font-size:16px">Kawasaki</h4>
+        <p>Febre ≥ 5 dias + mucosites + conjuntivite + adenopatia + exantema.</p>
+      </div>
+      <div class="tile" style="background:var(--yellow-soft);border:none;padding:16px 18px">
+        <div class="lbl">Periodicidade</div>
+        <h4 style="font-size:16px">PFAPA</h4>
+        <p>Episódios a cada 3–6 semanas, duração 3–5 dias, resolução espontânea.</p>
+      </div>
+      <div class="tile" style="background:var(--pink-soft);border:none;padding:16px 18px">
+        <div class="lbl">Imunomediado</div>
+        <h4 style="font-size:16px">Stevens-Johnson</h4>
+        <p>Lesões vesiculares/ulcerativas em mucosas + rash em alvo. Medicação recente.</p>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>05–06 · Anamnese</span><b>09</b></div>
+</section>
+
+<!-- ═══ 10 · CAP 7+8 — TESTAR OU NÃO ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulos 07–08 · Testar ou não testar</span><span>Módulo 3 · 🟢 Camada 3</span></div>
+    <div class="ey"><span class="n">7–8</span>O ponto de decisão</div>
+    <h2 class="t">Viral ou <em>bacteriana</em>?</h2>
+    <div class="lede">Vírus respondem por 70–95% dos casos. GAS por 15–30% em escolares. O escore orienta quando testar — o teste confirma.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:30px;align-items:flex-start;flex:1">
+      <div>
+        <div class="sc" style="margin-bottom:12px">Quando o teste pode ser dispensado</div>
+        <ul class="bl green" style="gap:10px">
+          <li>Rinorreia + tosse + conjuntivite — padrão viral claro.</li>
+          <li>Vesículas na orofaringe posterior — herpangina clínica.</li>
+          <li>Rouquidão + tosse + rinorreia — viral até prova em contrário.</li>
+          <li>Ulcerações anteriores da mucosa oral + febre — estomatite herpética.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sc" style="margin-bottom:12px">Quando o teste é obrigatório</div>
+        <ul class="bl red" style="gap:10px">
+          <li>Criança ≥ 3 anos com eritema/exsudato/petéquias sem sinais virais.</li>
+          <li>&lt; 3 anos com descarga nasal prolongada + adenopatia + contato com GAS.</li>
+          <li>Suspeita de febre reumática ou glomerulonefrite pós-estreptocócica.</li>
+          <li>Início agudo de TOC em pré-puberal (investigar PANDAS).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="box warn" style="margin-top:24px">
+      <div class="ico">⚠</div>
+      <div class="txt"><strong>A regra dos dois swabs:</strong> em criança/adolescente, SEMPRE coletar dois swabs simultâneos — um para o RADT, outro reservado para cultura caso o RADT seja negativo. RADT pode perder até 30% dos casos verdadeiros de GAS.</div>
+    </div>
+  </div>
+  <div class="folio"><span>07–08 · Testar</span><b>10</b></div>
+</section>
+
+<!-- ═══ 11 · CAP 9 — TESTES EM DETALHE ═══ -->
+<section class="page">
+  <div class="blob teal" style="width:280px;height:280px;right:-90px;top:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 09 · Os testes em detalhe</span><span>Módulo 3 · 🟢</span></div>
+    <div class="ey"><span class="n">9</span>Testes laboratoriais</div>
+    <h2 class="t">Como usar e<br/>como <em>interpretar</em>.</h2>
+
+    <div style="display:flex;flex-direction:column;gap:16px;margin-top:30px;flex:1">
+      <div class="tile" style="border-left:5px solid var(--blue);padding:20px 22px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><h4>RADT — Teste Rápido de Antígeno</h4><span class="chip">1ª linha</span></div>
+        <p style="font-size:13px">Especificidade 88–100% — <strong>positivo confirma</strong>. Sensibilidade ~85% — negativo NÃO exclui em crianças.</p>
+      </div>
+      <div class="tile" style="border-left:5px solid var(--green);padding:20px 22px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><h4>Cultura de orofaringe</h4><span class="chip green">Padrão-ouro</span></div>
+        <p style="font-size:13px">Sensibilidade 90–95%. Resultado em 24–48h. <strong>Confirmação obrigatória após RADT negativo em &lt; 15 anos.</strong></p>
+      </div>
+      <div class="tile" style="border-left:5px solid var(--teal);padding:20px 22px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><h4>NAAT / PCR</h4><span class="chip" style="background:var(--teal-soft);color:#2F6B6C">Alta sensibilidade</span></div>
+        <p style="font-size:13px">Sensibilidade 96–99%. Negativo dispensa cultura. Atenção: identifica também portador assintomático.</p>
+      </div>
+      <div class="tile" style="border-left:5px solid var(--yellow);padding:20px 22px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><h4>Monospot &amp; VCA IgM</h4><span class="chip yellow">Mononucleose</span></div>
+        <p style="font-size:13px">Em adolescente: monospot. Negativo com quadro típico → VCA IgM. <strong>&lt; 10 anos:</strong> pular monospot — anticorpos heterófilos frequentemente negativos. Ir direto a VCA IgM.</p>
+      </div>
+    </div>
+
+    <div class="box blue" style="margin-top:18px">
+      <div class="ico">i</div>
+      <div class="txt"><strong>Escore de McIsaac em pediatria:</strong> orienta QUANDO testar, jamais substitui o teste. Nunca tratar empiricamente com base no escore isolado em crianças.</div>
+    </div>
+  </div>
+  <div class="folio"><span>09 · Testes</span><b>11</b></div>
+</section>
+
+<!-- ═══ 12 · ABERTURA MÓDULO 4 ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 10 · Tratar ou não tratar</span><span>Módulo 4 · 💊</span></div>
+    <div class="ey"><span class="n">10</span>Decisão terapêutica</div>
+    <h2 class="t">Sem teste positivo,<br/><em>sem antibiótico</em>.</h2>
+    <div class="lede">O GAS é a única causa bacteriana de faringoamigdalite que justifica antibiótico rotineiro em crianças imunocompetentes.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:32px;align-items:flex-start;flex:1">
+      <div>
+        <h3 class="st">Por que tratar o GAS</h3>
+        <ul class="bl green" style="gap:11px">
+          <li><strong>Febre reumática:</strong> redução de ~2/3 com penicilina (metanálise &gt; 8.000 pacientes).</li>
+          <li><strong>Otite média:</strong> 2,0% → 0,47%.</li>
+          <li><strong>Abscesso peritonsilar:</strong> 2,3% → 0,24% em 14 dias.</li>
+          <li><strong>Transmissão:</strong> eliminação do GAS em 80–90% após 24h.</li>
+        </ul>
+        <div class="box tip" style="margin-top:18px">
+          <div class="ico">⏱</div>
+          <div class="txt">O início precoce do antibiótico reduz a duração dos sintomas em apenas <strong>~16 horas</strong> — o argumento real é a prevenção de complicações.</div>
+        </div>
+      </div>
+      <div>
+        <div class="qcard">
+          <p>Teste positivo + múltiplos sinais virais = suspeitar de portador crônico, não infecção ativa.</p>
+          <div class="att">— 2–20% das crianças são portadoras</div>
+        </div>
+        <div class="box warn" style="margin-top:18px">
+          <div class="ico">✕</div>
+          <div class="txt"><strong>Não fazer:</strong> prescrever sem teste · suspender com melhora precoce · usar macrolídeo sem alergia documentada · tratar portador crônico com infecção viral.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>10 · Decisão terapêutica</span><b>12</b></div>
+</section>
+
+<!-- ═══ 13 · CAP 11 — ANTIBIÓTICOS ═══ -->
+<section class="page">
+  <div class="blob pink" style="width:300px;height:300px;left:-100px;top:-100px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 11 · Antibioticoterapia</span><span>Dose, duração, alternativas</span></div>
+    <div class="ey"><span class="n">11</span>Antibiótico</div>
+    <h2 class="t">A <em>amoxicilina</em><br/>permanece 1ª escolha.</h2>
+    <div class="lede">O GAS nunca apresentou resistência documentada à penicilina ou às cefalosporinas.</div>
+
+    <div style="margin-top:28px;border-radius:10px;overflow:hidden;border:1px solid var(--rule)">
+      <table class="tbl">
+        <thead><tr><th style="width:30%">Antibiótico</th><th style="background:var(--blue);width:38%">Dose pediátrica</th><th style="background:#2F6B6C">Duração</th></tr></thead>
+        <tbody>
+          <tr><td>Amoxicilina (1ª escolha)</td><td>50 mg/kg/dia · 2×/dia (máx 1 g/dia)</td><td>10 dias</td></tr>
+          <tr><td>Penicilina G benzatina</td><td>&lt; 27 kg: 600.000 UI IM · ≥ 27 kg: 1.200.000 UI IM</td><td>Dose única</td></tr>
+          <tr><td>Cefalexina (alergia leve)</td><td>50 mg/kg/dia · 2×/dia (máx 500 mg/dose)</td><td>10 dias</td></tr>
+          <tr><td>Cefadroxil (alergia leve)</td><td>30 mg/kg/dia · 1×/dia (máx 1 g)</td><td>10 dias</td></tr>
+          <tr><td>Claritromicina (alergia grave)</td><td>15 mg/kg/dia · 2×/dia (máx 250 mg/dose)</td><td>10 dias</td></tr>
+          <tr><td>Azitromicina (alergia grave)</td><td>12 mg/kg/dia · 1×/dia (máx 500 mg)</td><td>5 dias</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px">
+      <div class="box tip">
+        <div class="ico">★</div>
+        <div class="txt"><strong>Por que 10 dias importa:</strong> cura clínica vem antes, mas a erradicação bacteriológica (91% em 10d vs. 80% em 5d) é o que previne febre reumática.</div>
+      </div>
+      <div class="box warn">
+        <div class="ico">✕</div>
+        <div class="txt"><strong>Não usar:</strong> tetraciclinas, sulfonamidas, fluoroquinolonas. Macrolídeo apenas em alergia grave confirmada — resistência crescente.</div>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>11 · Antibiótico</span><b>13</b></div>
+</section>
+
+<!-- ═══ 14 · CAP 12+13 — SINTOMÁTICO + ESPECIAIS ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulos 12–13 · Sintomático e casos especiais</span><span>Módulo 4 · 💊</span></div>
+
+    <div class="ey"><span class="n">12</span>Tratamento sintomático</div>
+    <h3 class="st">O que <em>funciona</em>.</h3>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px">
+      <div class="tile" style="background:var(--green-soft);border:none;padding:16px 20px">
+        <span style="font-size:10px;font-weight:700;color:var(--green);letter-spacing:.1em;text-transform:uppercase">✓ Recomendado</span>
+        <ul class="bl green" style="gap:7px;margin-top:8px;font-size:13px">
+          <li>Paracetamol 10–15 mg/kg/dose 4–6h</li>
+          <li>Ibuprofeno 10 mg/kg/dose 6h</li>
+          <li>Bebidas frias ou mornas (mel: ≥ 12 meses)</li>
+          <li>Gargarejo morno com sal (≥ 6 anos)</li>
+        </ul>
+      </div>
+      <div class="tile" style="background:var(--pink-soft);border:none;padding:16px 20px">
+        <span style="font-size:10px;font-weight:700;color:var(--red);letter-spacing:.1em;text-transform:uppercase">✕ Evitar</span>
+        <ul class="bl red" style="gap:7px;margin-top:8px;font-size:13px">
+          <li>Aspirina (síndrome de Reye)</li>
+          <li>Benzocaína em &lt; 2 anos (metemoglobinemia)</li>
+          <li>Pastilhas em ≤ 4 anos (asfixia)</li>
+          <li>Probióticos · fitoterapia · enxaguantes medicados</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rule" style="margin:26px 0 18px"></div>
+
+    <div class="ey"><span class="n">13</span>Casos especiais</div>
+    <h3 class="st">Quando a regra <em>muda</em>.</h3>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px">
+      <div class="tile" style="border-left:4px solid var(--yellow);padding:14px 16px">
+        <h4 style="font-size:15px">Mononucleose</h4>
+        <p>NUNCA dar amoxicilina sem excluir EBV em adolescente. Esplenomegalia → evitar contato. Obstrução → dexametasona IV.</p>
+      </div>
+      <div class="tile" style="border-left:4px solid var(--pink);padding:14px 16px">
+        <h4 style="font-size:15px">Candidíase</h4>
+        <p>Fora da lactância, sem ATB recente: <strong>investigar imunodeficiência</strong>. Nistatina ou fluconazol oral.</p>
+      </div>
+      <div class="tile" style="border-left:4px solid var(--red);padding:14px 16px">
+        <h4 style="font-size:15px">Difteria</h4>
+        <p>Antitoxina antes do laboratório. Penicilina cristalina IV ou eritromicina por 14 dias. Notificação imediata.</p>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span>12–13 · Sintomático e especiais</span><b>14</b></div>
+</section>
+
+<!-- ═══ 15 · CAP 14 — RECORRÊNCIA + PARADISE ═══ -->
+<section class="page">
+  <div class="blob" style="width:280px;height:280px;right:-90px;top:-90px"></div>
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 14 · Amigdalite Recorrente</span><span>Módulo 5 · 🔁</span></div>
+    <div class="ey"><span class="n">14</span>Recorrência</div>
+    <h2 class="t">A regra <em>7-5-3</em><br/>de Paradise.</h2>
+    <div class="lede">A decisão cirúrgica começa muito antes do encaminhamento — começa no registro contemporâneo de cada episódio.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:32px">
+      <div class="tile" style="background:var(--pink-soft);border:none;padding:22px 24px;text-align:center">
+        <div style="font-family:'Fraunces',serif;font-size:64px;color:var(--red-deep);font-weight:500;line-height:1">7</div>
+        <div style="font-family:'Fraunces',serif;font-size:14px;color:var(--blue-ink);font-weight:500;margin-top:4px">episódios</div>
+        <p style="font-size:12px;margin-top:6px">no último ano</p>
+      </div>
+      <div class="tile" style="background:var(--yellow-soft);border:none;padding:22px 24px;text-align:center">
+        <div style="font-family:'Fraunces',serif;font-size:64px;color:#7A5A00;font-weight:500;line-height:1">5</div>
+        <div style="font-family:'Fraunces',serif;font-size:14px;color:var(--blue-ink);font-weight:500;margin-top:4px">por ano</div>
+        <p style="font-size:12px;margin-top:6px">nos últimos 2 anos</p>
+      </div>
+      <div class="tile" style="background:var(--sky-soft);border:none;padding:22px 24px;text-align:center">
+        <div style="font-family:'Fraunces',serif;font-size:64px;color:var(--blue-deep);font-weight:500;line-height:1">3</div>
+        <div style="font-family:'Fraunces',serif;font-size:14px;color:var(--blue-ink);font-weight:500;margin-top:4px">por ano</div>
+        <p style="font-size:12px;margin-top:6px">nos últimos 3 anos</p>
+      </div>
+    </div>
+
+    <div class="box warn" style="margin-top:24px">
+      <div class="ico">!</div>
+      <div class="txt"><strong>"Documentado" significa:</strong> registro contemporâneo (feito no momento do episódio, não retrospectivo) com data, sintomas, temperatura, exame e resultado do teste. Sem documentação adequada, os critérios <em>não</em> estão preenchidos.</div>
+    </div>
+
+    <div class="box blue" style="margin-top:14px">
+      <div class="ico">i</div>
+      <div class="txt"><strong>Portador crônico com infecções virais</strong> pode acumular "episódios" que NÃO devem ser contados nos critérios. Sinais virais + teste positivo = suspeitar de portador.</div>
+    </div>
+  </div>
+  <div class="folio"><span>14 · Recorrência</span><b>15</b></div>
+</section>
+
+<!-- ═══ 16 · CAP 15 — TONSILECTOMIA ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 15 · Tonsilectomia</span><span>O que a evidência diz</span></div>
+    <div class="ey"><span class="n">15</span>Tonsilectomia</div>
+    <h2 class="t">Benefício <em>modesto</em><br/>no primeiro ano.</h2>
+    <div class="lede">Paradise: redução média de 1,9 episódio/ano no 1º ano pós-cirurgia. Grupo controle também melhora espontaneamente.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:30px;align-items:flex-start;flex:1">
+      <div>
+        <div class="sc" style="margin-bottom:14px">Riscos a discutir com a família</div>
+        <ul class="bl red" style="gap:9px">
+          <li>Sangramento primário (&lt; 24h): 0,2–2,2%</li>
+          <li>Sangramento secundário (&gt; 24h): 0,1–3%</li>
+          <li>Dor pós-operatória intensa por 7–14 dias</li>
+          <li>Disfonia temporária (insuf. velofaríngea)</li>
+          <li>Mortalidade: 1:18.000 ambulatorial</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sc" style="margin-bottom:14px">Polissonografia ANTES da cirurgia</div>
+        <ul class="bl yellow" style="gap:9px">
+          <li>&lt; 2 anos</li>
+          <li>Obesidade (IMC ≥ P95)</li>
+          <li>Síndrome de Down</li>
+          <li>Anomalias craniofaciais ou neuromusculares</li>
+          <li>Doença falciforme · mucopolissacaridoses</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="box green" style="margin-top:24px">
+      <div class="ico">✓</div>
+      <div class="txt"><strong>PFAPA:</strong> evidência mais sólida — dois ECRs e revisão Cochrane mostram NNT 2 para resolução completa dos sintomas. Considerar quando há impacto significativo na qualidade de vida.</div>
+    </div>
+  </div>
+  <div class="folio"><span>15 · Tonsilectomia</span><b>16</b></div>
+</section>
+
+<!-- ═══ 17 · CAP 16 — REFERÊNCIA / 10 ERROS ═══ -->
+<section class="page">
+  <div class="pi">
+    <div class="ph"><span class="c">Capítulo 16 · Referência Rápida</span><span>Módulo 6 · 📋</span></div>
+    <div class="ey">Os erros mais comuns</div>
+    <h2 class="t" style="font-size:42px">O que a evidência<br/>diz que <em>fazemos errado</em>.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;flex:1">
+      <div class="gold" style="padding:14px 18px"><div class="n" style="font-size:32px">1</div><div><h5 style="font-size:14px">Amoxicilina sem excluir mononucleose</h5><p style="font-size:11.5px">Monospot/VCA antes em adolescente com fadiga + adenopatia posterior.</p></div></div>
+      <div class="gold" style="background:var(--pink-soft);border-color:rgba(217,93,98,.2);padding:14px 18px"><div class="n" style="color:var(--red-deep);font-size:32px">2</div><div><h5 style="font-size:14px">Não confirmar RADT negativo</h5><p style="font-size:11.5px">Cultura sempre em &lt; 15 anos com RADT negativo.</p></div></div>
+      <div class="gold" style="background:var(--green-soft);border-color:rgba(47,143,90,.2);padding:14px 18px"><div class="n" style="color:var(--green);font-size:32px">3</div><div><h5 style="font-size:14px">Tratar portador crônico viral</h5><p style="font-size:11.5px">Sinais virais + teste positivo = suspeitar portador.</p></div></div>
+      <div class="gold" style="background:var(--teal-soft);border-color:rgba(47,107,108,.2);padding:14px 18px"><div class="n" style="color:#2F6B6C;font-size:32px">4</div><div><h5 style="font-size:14px">Macrolídeo sem alergia documentada</h5><p style="font-size:11.5px">Resistência crescente compromete eficácia.</p></div></div>
+      <div class="gold" style="background:var(--sky-soft);border-color:rgba(82,133,183,.2);padding:14px 18px"><div class="n" style="color:var(--blue-deep);font-size:32px">5</div><div><h5 style="font-size:14px">Suspender ATB com melhora precoce</h5><p style="font-size:11.5px">10 dias completos para erradicação.</p></div></div>
+      <div class="gold" style="padding:14px 18px"><div class="n" style="font-size:32px">6</div><div><h5 style="font-size:14px">Prescrever empiricamente sem teste</h5><p style="font-size:11.5px">Quadros viral e bacteriano se sobrepõem.</p></div></div>
+      <div class="gold" style="background:var(--pink-soft);border-color:rgba(217,93,98,.2);padding:14px 18px"><div class="n" style="color:var(--red-deep);font-size:32px">7</div><div><h5 style="font-size:14px">Não documentar episódios recorrentes</h5><p style="font-size:11.5px">Paradise exige registro contemporâneo.</p></div></div>
+      <div class="gold" style="background:var(--green-soft);border-color:rgba(47,143,90,.2);padding:14px 18px"><div class="n" style="color:var(--green);font-size:32px">8</div><div><h5 style="font-size:14px">Indicar tonsilectomia sem critérios</h5><p style="font-size:11.5px">Critérios documentados são obrigatórios.</p></div></div>
+      <div class="gold" style="background:var(--teal-soft);border-color:rgba(47,107,108,.2);padding:14px 18px"><div class="n" style="color:#2F6B6C;font-size:32px">9</div><div><h5 style="font-size:14px">Não perguntar sobre vacinação</h5><p style="font-size:11.5px">Difteria e Hib em criança não vacinada.</p></div></div>
+      <div class="gold" style="background:var(--sky-soft);border-color:rgba(82,133,183,.2);padding:14px 18px"><div class="n" style="color:var(--blue-deep);font-size:32px">10</div><div><h5 style="font-size:14px">Ignorar sinal de alarme</h5><p style="font-size:11.5px">Camada 1 do funil SEMPRE primeiro.</p></div></div>
+    </div>
+  </div>
+  <div class="folio"><span>16 · Os 10 erros</span><b>17</b></div>
+</section>
+
+<!-- ═══ 18 · CONTRACAPA ═══ -->
+<section class="page back">
+  <svg style="position:absolute;right:-80px;top:-80px;width:380px;opacity:.16" viewBox="0 0 300 300" fill="none">
+    <circle cx="150" cy="150" r="140" stroke="#FDDB5C" stroke-width="1"/>
+    <circle cx="150" cy="150" r="100" stroke="#92D4D5" stroke-width="1"/>
+    <circle cx="150" cy="150" r="58" fill="#F7ADAF" opacity=".5"/>
+  </svg>
+  <div class="pi" style="justify-content:space-between">
+    <div>
+      <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--yellow);font-weight:700;margin-bottom:28px">A Criança com Dor de Garganta</div>
+      <div style="font-family:'Fraunces',serif;font-weight:300;font-size:52px;line-height:1.04;letter-spacing:-.015em;max-width:560px;color:#fff">
+        Um sistema<br/>de <em style="color:var(--yellow);font-style:italic;font-weight:400">decisão clínica</em>.
+      </div>
+      <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:21px;line-height:1.5;color:rgba(255,255,255,.8);max-width:540px;margin-top:24px">Do raciocínio diagnóstico à conduta segura — em três camadas, seis módulos e dezesseis capítulos.</p>
+    </div>
+    <div>
+      <div style="display:flex;gap:12px;margin-bottom:28px">
+        <span style="width:22px;height:22px;border-radius:50%;background:#5285B7"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#A5CAE0"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#FDDB5C"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#F7ADAF"></span>
+        <span style="width:22px;height:22px;border-radius:50%;background:#92D4D5"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.15);padding-top:22px">
+        <div>
+          <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600">Autoria</div>
+          <div style="font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-top:4px">Dra. Ana Luísa Pacheco</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.6);margin-top:3px">Pediatra · Infectologista Pediátrica</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600">Edição</div>
+          <div style="font-family:'Fraunces',serif;font-size:19px;color:#fff;margin-top:4px">Amigdalite · 2026</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.6);margin-top:3px">© 2026 · Todos os direitos reservados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
